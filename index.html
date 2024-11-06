@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Sun Products</title>
+    <link rel="stylesheet" href="redsun.css">
+<!--     <style>
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            background-color: #DA1A00;
+            width: 100vw;
+            padding-top: calc(320 / 1440 * 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-image {
+            width: 102px;
+            height: 32px;
+            position: absolute;
+            top: 32px;
+        }
+
+        .circle-sun {
+            width: 1024px;
+            height: 1024px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translate(-50%, -432px);
+            box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 1.00);
+        }
+
+        .family-photo {
+            width: 480px;
+            height: 480px;
+            position: absolute;
+            top: 198px;
+        }
+
+        .circle-shadow {
+            width: 760px;
+            height: 146px;
+            background: radial-gradient(closest-side, rgba(149, 18, 0, 1.00) 0%, rgba(149, 18, 0, 0.00) 100%);
+            position: absolute;
+            top: 1000px;
+            left: 50%;
+            transform: translate(-50%, -432px);
+        }
+
+        .table-links {
+            width: 40%;
+            margin-top: 380px;
+            margin-bottom: 100px;
+        }
+
+        .button {
+            color: white; 
+            text-decoration: none;
+            transition: text-decoration 0.3s; 
+        }
+
+        .button:hover {
+            text-decoration: underline; 
+        }
+
+        th, td {
+            width: 400px; 
+            height: 100px;
+            text-align: center; 
+            vertical-align: middle; 
+        }
+
+        .tables-section {
+            width: 1440px;
+            margin-top: 144px;
+            text-align: center;
+        }
+
+        table {
+            width: 60%;
+            margin: 10px auto;
+            border-collapse: collapse;
+            margin-bottom: 72px;
+        }
+
+        table, td {
+            border: 0px solid black;
+            padding: 8px;
+            color: rgba(27, 31, 38, 0.72); 
+            font-size: 16px;
+        }
+
+        .text-red {
+            margin-top: 20px;
+            color: #DA1A00;
+            font-size: 30px;
+        }
+
+        .viewmore {
+            margin-top: 16px;
+            font-size: 16px;
+            color: rgba(27, 31, 38, 0.72); 
+            margin-bottom: 144px;
+        }
+
+        .viewmore:hover {
+            text-decoration: underline; 
+        }
+
+        .cover {
+            background-color: #DA1A00;
+            width: 100vw;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: calc(360 / 1440 * 100%);
+            padding-bottom: calc(360 / 1440 * 100%);
+        }
+
+        .campaign {
+            width: 100vw;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: calc(360 / 1440 * 100%);
+            padding-bottom: calc(360 / 1440 * 100%);
+        }
+
+        .h1 {
+            font-size: px;
+        }
+
+        .h2 {
+            line-height: 2;
+            font-size: 30px;
+        }
+
+        .text-white {
+            margin-top: 20px;
+            color: #FFFFFF;
+        }
+
+        .text-white:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #000000;
+            width: 100vw; /* Ensure it spans the full width */
+            padding-top: 64px;
+            padding-bottom: 64px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .left-section {
+            background-color: #000000;
+            padding-top: 64px;
+            padding-bottom: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            margin-left: 20%;
+            position: relative;
+        }
+
+        .p {
+            width: 40%;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            text-align: left;
+            color: #ffffff; 
+        }
+
+        .all-rights-reserved {
+            color: #ffffff; 
+            background-color: #000000;
+            text-align: left;
+            font-size: var(body-sm-regular-font-size, 14px);
+            line-height: var(body-sm-regular-line-height, 20px);
+            font-weight: var(body-sm-regular-font-weight, 400);
+            position: relative;
+        }
+
+        .horizontal-scroll-container {
+            display: flex;
+            width: 500vw; /* Adjust width to fit four screens horizontally */
+            overflow-x: auto;
+            overflow-y: hidden;
+            height: 100vh;
+            scroll-snap-type: x mandatory;
+        }
+
+        /* Individual Color Sections */
+        .scroll-section {
+            flex: 1 0 100vw; /* Take full viewport width */
+            height: 100vh;
+            scroll-snap-align: start;
+        }
+
+        .red { background-color: #DA1A00; }
+
+        .blue { background-color: #020F82; }
+
+        .purple { background-color: #7D7DFF; }
+
+        .orange { background-color: #FF4D23; }
+
+        .green { background-color: #1AA928; }
+
+        /* Vertical Scroll Section */
+        .vertical-scroll-section {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .scroll-section {
+            position: relative; 
+            height: 100vh;
+        }
+
+        .scroll-section.blue,
+        .scroll-section.green {
+            padding-left: 114px; 
+            padding-top: 114px; 
+            text-align: left; 
+        }
+
+        .scroll-section.purple,
+        .scroll-section.orange {
+            position: relative;
+            padding-right: 114px;
+            padding-bottom: 114px;
+            text-align: right;
+        }
+    </style> -->
+</head>
+
+
+<body>
+    <div class="hero">
+        <!-- Title image -->
+        <img src="Title.svg"
+        alt="Title" class="title-image2">        
+        <!-- Family photo -->
+        <img src="first_family_photo.png" alt="family-photo" class="family-photo">
+        <div class="circle-sun"></div>
+        <div class="circle-shadow"></div>
+        <!-- Links table -->
+        <table class="table-links">
+            <tr>
+                <td><a href="index.html" class="button">Homepage</a></td>
+                <td><a href="redsun_profile.html" class="button">Profile</a></td>
+                <td><a href="redsun_history.html" class="button">History</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tables-section">
+        <h2 class="text-red">作物 Plant</h2>
+        <table>
+            <tr>
+                <td>白菜 Cabbage</td>
+                <td>黑草 Black Grass</td>
+                <td>绣球花 Hydrangea</td>
+            </tr>
+            <tr>
+                <td>向日葵 Sunflower</td>
+                <td>食人花 Carnivorous Plant</td>
+                <td>香菇 Mushroom</td>
+            </tr>
+            <tr>
+                <td>土豆 Potato</td>
+                <td>橘子 Orange</td>
+                <td>胡萝卜 Carrot</td>
+            </tr>
+            <tr>
+                <td>菊花 Chrysanthemum</td>
+                <td>竹 Bamboo</td>
+                <td>茶叶 Tea Leaf</td>
+            </tr>
+            <tr>
+                <td>豌豆 Pea</td>
+                <td>杨梅 Waxberry</td>
+                <td>抠抠脑 Knock-Knock Nut</td>
+            </tr>
+            <tr>
+                <td>欧洲防风 Parsnip</td>
+                <td>食人花 Carnivorous Plant</td>
+                <td>狼尾草 Kikuyu grass</td>
+            </tr>
+            <tr>
+                <td>狗尾草 Green bristlegrass</td>
+                <td>苔藓石头 Irish Moss</td>
+                <td>西蓝花 Broccoli</td>
+            </tr>
+            <tr>
+                <td>花椰菜 Cauliflower</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h2 class="text-red">畜禽 Animal</h2>
+        <table>
+            <tr>
+                <td>眼镜蛇 Cobra</td>
+                <td>黑绵羊 Black Sheep</td>
+                <td>红鲱鱼 Red Herring</td>
+            </tr>
+            <tr>
+                <td>猪 Pig</td>
+                <td>射水鱼 Archer Fish</td>
+                <td>虾 Shrimp</td>
+            </tr>
+            <tr>
+                <td>彩虹啵啵 Rainbow Bubble</td>
+                <td>咸鸭蛋 Salted Duck Egg</td>
+                <td>本地鸡 Local Chicken</td>
+            </tr>
+            <tr>
+                <td>海鸥 Seagull</td>
+                <td>小浣熊 Little Raccoon</td>
+                <td>鲶鱼 Catfish</td>
+            </tr>
+        </table>
+
+        <h2 class="text-red">工作人员 Staff</h2>
+        <table>
+            <tr>
+                <td>贤鱼 Wise Fish</td>
+                <td>巨鸭艮 Big Duck</td>
+                <td>微鸡分 Tiny Chicken</td>
+            </tr>
+            <tr>
+                <td>八千 Ba Qian</td>
+                <td>小鸡 Little Chicken</td>
+                <td>大鹑电 Big Quail Electric</td>
+            </tr>
+            <tr>
+                <td>高鸭垫 Tall Duck Stand</td>
+                <td>小柴糊 Little Firewood Paste</td>
+                <td>绿鳀鱼 Green Anchovy</td>
+            </tr>
+            <tr>
+                <td>黄貂鱼 Yellow Stingray</td>
+                <td>紫鲨鱼 Purple Shark</td>
+                <td>蓝章鱼 Blue Octopus</td>
+            </tr>
+            <tr>
+                <td>来福 Laifu</td>
+                <td>旺财 Wangcai</td>
+                <td>翠花 Cuijhua</td>
+            </tr>
+            <tr>
+                <td>社会王哥 Society King</td>
+                <td>养生堂堂主 Wellness Hall Master</td>
+                <td>人马 Centaur</td>
+            </tr>
+            <tr>
+                <td>发烧企鹅 Fever Penguin</td>
+                <td>鲵大爷 Grandpa Newt</td>
+                <td>弹涂鱼 Mudskipper</td>
+            </tr>
+            <tr>
+                <td>蝾螈 Salamander</td>
+                <td>山羊 Goat</td>
+                <td>稻草人 Scarecrow</td>
+            </tr>
+        </table>
+
+        <div class="viewmore">
+            <div class="viewmore">
+                <a href="redsun_profile.html">
+                    了解更多<br>
+                    View More
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="cover"> 
+        <div class="red">
+            <h2 class="text-white">我们的节日活动！<br>
+            Our Campaign!</h2>
+        </div>
+    </div>
+
+    <div class="cover">
+        <div class="red">
+            <h2 class="text-white">其实，这个故事要从这里讲起... ...<br>
+            In fact, his story begins here... ...</h2>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="left-section">
+            <img src="Title.svg"
+            alt="Title" class="title-image2">
+            <div>
+                <p>
+                    <a href="index.html" class="button">Homepage</a>
+                    <a href="redsun_profile.html" class="button">Profile</a>
+                    <a href="redsun_history.html" class="button">History</a>
+                </p>
+            </div>
+            <div class="all-rights-reserved">
+                © 2024 Yan He and Youyuan Wang. All rights reserved
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Horizontal Scroll Sections
+<div class="horizontal-scroll-container" id="horizontalContainer">
+    <div class="scroll-section red">
+        <h2 class="text-white">我们的节日活动！<br>Our Campaign!</h2>
+    </div>
+    <div class="scroll-section blue">
+        <h1>Mid Autumn Festival</h1>
+        <h2>20190912</h2>
+    </div>
+    <div class="scroll-section purple">
+        <h1>Happy Christmas</h1>
+        <h2>20231224</h2>
+    </div>
+    <div class="scroll-section orange">
+        <h1>Happy New Year</h1>
+        <h2>20231231</h2>
+    </div>
+    <div class="scroll-section green">
+        <h1>Dragon Boat Festival</h1>
+        <h2>20240608</h2>
+    </div>
+</div>
+ -->
+
+</html>
