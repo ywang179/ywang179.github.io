@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="./2026portfolio_2025amazon_vars.css">
+  <link rel="stylesheet" href="./2026portfolio_2025amazon_style.css">
+  <style>
+    html {
+      height: 100%;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+    html::-webkit-scrollbar { display: none; }
+    body {
+      height: auto;
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+    /* Hero: 920px fixed when <=1440px, full width when >1440px */
+    .hero {
+      height: 100vh;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: row;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .hero::-webkit-scrollbar { display: none; }
+    .frame-hero {
+      flex-shrink: 0;
+      width: 1440px;
+      height: 100vh;
+      scroll-snap-align: start;
+      overflow: hidden;
+    }
+    @media (min-width: 1441px) {
+      .frame-hero { width: 100vw; }
+    }
+
+    /* Body section */
+    .frame-project-body {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      height: 100vh !important;
+      overflow: hidden !important;
+      padding: 0 !important;
+      position: relative !important;
+      align-items: flex-start !important;
+    }
+    @media (min-width: 1441px) {
+      .frame-project-title { justify-content: center !important; }
+      .frame-project-body { justify-content: center !important; }
+    }
+
+    /* Left column — sticky inside body */
+    .left-panel {
+      position: sticky !important;
+      top: 0 !important;
+      width: 304px !important;
+      min-width: 304px !important;
+      height: 100vh !important;
+      overflow: hidden !important;
+      padding: 72px 0 72px 48px !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Right column */
+    .right-panel {
+      width: 1136px;
+      max-width: 1136px;
+      flex-shrink: 0;
+      position: relative;
+      overflow-y: auto !important;
+      height: 100vh !important;
+    }
+    </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-buttons">
+      <a class="nav-button-1 unselected" href="index.html">Featured Work</a>
+      <div class="nav-button-2 unselected">Playground</div>
+      <div class="nav-button-3 unselected">About Me</div>
+      <div class="nav-button-4 unselected">Resume</div>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="frame-hero" id="slide-1">
+      <img class="hero-bg" src="amazon-hero-bg1.png" />
+      <div class="hero-progress-tabs">
+        <div class="frame-progress-description">
+          <div class="body-grey nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-3').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">
+            Fan Sticker Customization
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="frame-progress-description">
+          <div class="body-grey nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-2').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">
+            Favorite Deep Dive
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="frame-progress-description">
+          <div class="body-white nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-1').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">Preference Discovery</div>
+        </div>
+      </div>
+      <div class="explanation">
+        <div class="frame-hero-title">
+          <div class="hero-title">
+            Discover Personal Tastes Through Journal And Monthly Recap
+          </div>
+        </div>
+        <div
+          class="body-white"
+        >
+        Transforming listening history into a visual map of moods, artists, and time enables quick recognition of preference patterns.
+        </div>
+      </div>
+      <div class="video">
+        <video class="frame-video" autoplay muted loop playsinline>
+          <source src="amazon-hero-video-1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="frame-hero _2" id="slide-2">
+      <img class="hero-bg" src="amazon-hero-bg2.png" />
+      <div class="hero-progress-tabs">
+        <div class="frame-progress-description">
+          <div class="body-grey nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-3').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">
+            Fan Sticker Customization
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="frame-progress-description">
+          <div class="body-white nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-2').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">
+            Favorite Deep Dive
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="frame-progress-description">
+          <div class="body-grey nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-1').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">Preference Discovery</div>
+        </div>
+      </div>
+      <div class="video">
+        <video class="frame-video" autoplay muted loop playsinline>
+          <source src="amazon-hero-video-2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="explanation">
+        <div class="frame-hero-title">
+          <div class="hero-title">
+            Explore Lyrics, Melodies & Artist Stories In Depth
+          </div>
+        </div>
+        <div
+          class="body-white"
+        >
+        Lyrics, melody insights, and behind-the-scenes content are merged into existing features, enabling focused exploration while extending discovery through personal taste and social context.
+        </div>
+      </div>
+    </div>
+    <div class="frame-hero _3" id="slide-3">
+      <img class="hero-bg" src="amazon-hero-bg3.png" />
+      <div class="hero-progress-tabs">
+        <div class="frame-progress-description">
+          <div class="body-white nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-3').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">
+            Fan Sticker Customization
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="frame-progress-description">
+          <div class="body-grey nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-2').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">
+            Favorite Deep Dive
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="frame-progress-description">
+          <div class="body-grey nav-link" onclick="document.querySelector('.hero').scrollTo({left:document.getElementById('slide-1').offsetLeft,behavior:'smooth'})" style="cursor:pointer;">Preference Discovery</div>
+        </div>
+      </div>
+      <div class="video">
+        <video class="frame-video" autoplay muted loop playsinline>
+          <source src="amazon-hero-video-3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="explanation">
+        <div class="frame-hero-title">
+          <div class="hero-title">
+            Express Fan Identity Through Artist Stickers
+          </div>
+        </div>
+        <div
+          class="body-white"
+        >
+        Users can showcase earned artist stickers in the profile header, reflecting engagement levels and celebrating milestones while reinforcing fan identity.
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const hero = document.querySelector('.hero');
+    const slides = hero.querySelectorAll('.frame-hero');
+    let current = 0;
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      hero.scrollTo({ left: slides[current].offsetLeft, behavior: 'smooth' });
+    }, 16000);
+  </script>
+  <div class="frame-project-body">
+    <!-- Left column: fixed nav, no scroll -->
+    <div class="left-panel">
+      <div class="frame-menu">
+        <div class="body-grey nav-link" onclick="scrollToSection('section-business-goal')">Business Goal &amp; Solution</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-research-methodology')">Research Methodology</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-user-behavior-churn-insights')">User Behavior &amp; Churn Insights</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-problem-statement')">Problem Statement</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-competitive-analysis')">Competitive Analysis</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-brainstorm')">Brainstorming + Prioritization</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-iteration-1-2')">Iteration</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-information-architecture')">Information Architecture</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-finaluxjourney')">Final UX Journey</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-user-feedback')">User Feedback</div>
+        <div class="body-grey nav-link" onclick="scrollToSection('section-reflection')">Reflection</div>
+      </div>
+    </div>
+    <!-- Right column: scrollable content -->
+    <div class="right-panel">
+      <div class="frame-project-title">
+        <div class="h1">
+          Turning taste discovery into loyalty for Amazon Music
+        </div>
+        <div
+          class="body-grey"
+        >
+        Fostering music community through commitment-driven rewards, enhancing engagement and retention
+        </div>
+      </div>
+      <div class="frame-project-bg">
+        <div class="frame-project-intro">
+          <div class="frame-project-intro-upper">
+            <div class="frame-project-intro-upper-row">
+              <div class="body-grey">Team</div>
+              <div class="body-white">
+                3 Members 
+                </br>
+                (Me as Product Manager+Designer)
+              </div>
+            </div>
+          </div>
+          <div class="frame-project-intro-upper" style="gap: 24px;">
+            <div class="frame-project-intro-client" style="width: 169px;">
+              <div class="body-grey">Hackathon Organizer</div>
+              <div class="body-white">
+                Amazon Music + Pratt 
+              </div>
+            </div>
+            <div class="frame-project-intro-duration">
+              <div class="body-grey">Duration</div>
+              <div class="body-white">2025.2-3</div>
+            </div>
+          </div>
+        </div>
+        <img class="timeline" src="amazon-timeline.png" />
+      </div>
+      <div class="frame-each-section" id="section-business-goal">
+        <div class="frame-title">
+          <div class="body-grey">Business Goal &amp; Outcome</div>
+          <div class="h2">
+            Shift listening from a functional activity to an identity-driven journey to drive sustained retention.
+          </div>
+        </div>          
+        <div class="body-black">
+          Amazon Music aims to improve retention across its tiers by creating a differentiated experience that becomes essential to users’ daily lives.
+          <br />
+          We reposition listening as an identity-driven journey based on Hook Model, aligning discovery, insight, and community with Amazon Music’s tier structure to drive retention and upgrades.
+        </div>
+      </div>
+      <div class="frame-each-section">
+        <div class="h2" style="text-align: center; width: 920px; margin: 72px 0;">
+          What did our process look like?
+        </div>
+      </div>
+      <div class="frame-each-section" id="section-research-methodology">
+        <div class="frame-title">
+          <div class="body-grey">Research Methodology</div>
+          <div class="h2">
+            We combined qualitative depth, quantitative scale, and behavioral evidence to understand retention challenges and engagement patterns.
+          </div>
+        </div>
+        <img src="amazon-research-methodology.png" style="width: 920px; height: 424px; display: block;" />
+      </div>
+      <div class="frame-each-section" id="section-user-behavior-churn-insights">
+        <div class="frame-title">
+          <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+            <div class="body-grey">User Behavior &amp; Churn Insights</div>
+          </div>
+          <div class="h2">
+            Bundled but unloved, Amazon Music carries for in-depth artist discovery yet lacks emotional pull and identity.
+          </div>
+        </div>         
+        <div class="body-white">
+          Across the market, users favor artist-led discovery, mood-based playlists, and socially influenced listening. While Amazon Music offers features like X-Ray that enable deeper storytelling, usage is still driven mainly by Prime bundling and device integration rather than intrinsic platform value.
+          </br>
+          As for Amazon Music, casual users stay for convenience, while passionate fans lack a sense of community and identity. As a result, the 30-day trial often fails to convert contemporary attention into long-term engagement.
+          </br>
+          A tiered experience that builds emotional connection is therefore needed.
+        </div>
+        <div class="h-scroll-container" style="overflow-x: auto; width: 920px;">
+          <div style="padding-bottom: 8px; width: 1864px; cursor: pointer;" onclick="document.getElementById('lightbox-img').src='amazon-research-insights.png'; document.getElementById('lightbox-overlay').style.display='flex';">
+            <img src="amazon-research-insights.png" style="width: 1864px; height: auto; display: block; pointer-events: none;" />
+          </div>
+        </div>
+      </div>
+      <div class="frame-each-section" id="section-problem-statement" style="background-color: var(--color-amazon-light); padding: 48px; border-radius: 12px; width: 920px; box-sizing: border-box; align-items: center; text-align: center;">
+        <div class="frame-title">
+          <div class="body-grey">Problem Statement</div>
+          <div class="frame-48098543">
+            <div class="how-might-we-transform-hennessy-membership-benefits-into">
+              How might we
+              <br />
+              help Amazon Music users
+            </div>
+            <div class="frame-48098554">
+              <div class="frame-48098544">
+                <div class="memorable-brand-moments-that">
+                  <span>
+                    <span class="amazon-hmw-highlight">
+                      Build Lasting Loyalty
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div class="frame-48098544" style="margin-top: -4px;">
+                <div class="foster-long-term-loyalty" style="white-space: nowrap;">
+                  <span class="amazon-hmw-normal">by supporting both </span><span class="amazon-hmw-highlight">Casual Listening</span>
+                </div>
+              </div>
+              <div class="frame-48098544" style="margin-top: -4px;">
+                <div class="foster-long-term-loyalty" style="white-space: nowrap;">
+                  <span class="amazon-hmw-normal">and </span><span class="amazon-hmw-highlight">In-Depth Artist-Centered Engagement</span><span class="amazon-hmw-normal"> ?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-each-section">
+        <div class="frame-title">
+          <div class="h2">
+            In reality, listener loyalty is dynamic. 
+            </br>
+            Casual use can mature into artist devotion.          </div>
+        </div>
+        <img src="amazon-transition.png" style="width: 920px; height: 157px; display: block;" />
+      </div>
+      <div class="frame-each-section" style="background-color: var(--color-amazon-full); padding: 48px; border-radius: 12px; width: 920px; box-sizing: border-box; align-items: center; text-align: center;">
+        <div class="frame-title">
+          <div class="body-white">Problem Restatement</div>
+          <div class="frame-48098543">
+            <div class="how-might-we-transform-hennessy-membership-benefits-into">
+              How might we
+              <br />
+              transform Amazon Music from a bundled utility into
+            </div>
+            <div class="frame-48098554">
+              <div class="frame-48098544">
+                <div class="memorable-brand-moments-that">
+                  <span>
+                    <span class="amazon-hmw-highlight">
+                      An Identity-Driven Platform
+                    </span>
+                    <span class="amazon-hmw-normal">that</span>
+                  </span>
+                </div>
+              </div>
+              <div class="frame-48098544" style="margin-top: -4px;">
+                <div class="foster-long-term-loyalty" style="white-space: nowrap;">
+                  <span class="amazon-hmw-highlight">Fosters Emotional Attachment </span><span class="amazon-hmw-normal">and</span>
+                  <span class="amazon-hmw-highlight">Loyalty</span><span class="amazon-hmw-normal">?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-each-section">
+        <div class="h2" style="text-align: center; width: 920px; color: var(--color-amazon-full);">
+          A Self-Reinforcing Taste-Discovery-To-Identity
+          </br>
+          Loyalty Mechanism <span class="how-might-we-transform-hennessy-membership-benefits-into">that leverages with Amazon Music’s</span>
+          </br>
+          Native Ecosystem Advantages
+        </div>
+        <div class="body-grey" style="text-align: center;">
+          Enable users to deepen emotional connection with music over time
+          </br>
+          without forcing a single listening style or disrupting existing habits.          <br />
+        </div>
+        <img class="overall-before-after" src="amazon-mechanism.png" />
+        <img class="overall-before-after" src="amazon-snapshot.png" />
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-competitive-analysis">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">Competitive Analysis</div>
+            </div>
+            <div class="h2">
+              Its device-led advantage and untapped fan storytelling potential create a clear breakthrough opportunity.
+            </div>
+          </div>          
+          <div class="body-black">
+            This comparison shows how major music platforms differentiate, highlighting Amazon Music’s strength in device integration and its opportunity to expand fan interaction and deepen artist storytelling through X-Ray.
+          </div>
+          <img class="overall-before-after" src="amazon-competitive.png" />
+        </div>
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-brainstorm">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">Brainstorming + Prioritization</div>
+            </div>
+            <div class="h2">
+              Build reliability first, then amplify emotional value.
+            </div>
+          </div>          
+          <div class="body-black">
+            Reliability and usability set the baseline, but emotional connection drives true differentiation and long-term retention. Our strategy secures a seamless core experience first, then amplifies emotional value, executed in two key steps:
+            </br>
+            Step 1: Brainstormed and consolidated all ideas into a structured spreadsheet.
+            </br>
+            Step 2: Prioritized cost-effective ideas by balancing short-term impact with long-term emotional value.
+          </div>
+          <img class="overall-before-after" src="amazon-brainstorming + prioritization.png" />
+        </div>
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-iteration-1-2">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">Iteration | Version 1.0 & 2.0</div>
+            </div>
+          </div>
+          <div class="frame-48098771">
+            <img class="amazon-draft lightbox-trigger" src="amazon-draft.png" style="border-radius: 8px;" />
+            <img class="amazon-lowfi lightbox-trigger" src="amazon-lowfi.png" style="border-radius: 8px;" />
+          </div>
+          <div
+              class="body-grey" style="text-align: center;"
+            >
+            (👆Click to enlarge)
+            </div>
+        <div style="height: 72px;"></div>
+        </div>
+        <div class="frame-each-section" id="section-iteration-3">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">Iteration | Version 3.0 based on user testing results</div>
+            </div>
+          </div>         
+          <div class="h-scroll-container" style="overflow-x: auto; width: 920px;">
+            <div style="padding-bottom: 8px; width: 2856px; cursor: pointer;" onclick="document.getElementById('lightbox-img').src='amazon-research-insights.png'; document.getElementById('lightbox-overlay').style.display='flex';">
+              <img src="amazon-iteration3.png" style="width: 2856px; height: auto; display: block; pointer-events: none;" />
+            </div>
+          </div>
+        </div>
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-information-architecture">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">Information Architecture</div>
+            </div>
+            <div class="h2">
+              New and redesigned features were crafted to grow naturally from the system, rather than feel added on.
+            </div>
+          </div>
+          <img src="amazon-infoarch.png" style="width: 920px; height: 287px; margin-top: 24px;" />
+        </div>
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-finaluxjourney">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">Final UX Journey (👉Scroll to view the whole flow)</div>
+            </div>
+          </div>         
+          <div class="h-scroll-container" style="overflow-x: auto; width: 920px;">
+            <div style="padding-bottom: 8px; width: 5736px; cursor: pointer;" onclick="document.getElementById('lightbox-img').src='amazon-research-insights.png'; document.getElementById('lightbox-overlay').style.display='flex';">
+              <img src="amazon-finaluxjourney.png" style="width: 5736px; height: auto; display: block; pointer-events: none;" />
+            </div>
+          </div>
+        </div>
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-user-feedback">
+          <div class="frame-title">
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+              <div class="body-grey">User Feedback</div>
+            </div>
+            <img src="amazon-feedback.png" style="width: 920px; height: 455px; margin-top: 24px;" />
+          </div>
+        </div>
+        <div style="height: 72px;"></div>
+        <div class="frame-each-section" id="section-reflection">
+          <div class="frame-title">
+            <div class="body-grey">Reflection</div>
+            <div class="h2">
+              Differentiation Is Key
+            </div>
+          </div>
+          <div class="body-black" style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              In a crowded market, standing out matters more than adding features. Early on, we struggled to find direction since most music platforms feel functionally similar. With guidance from Se One Park, Sanae Smili, and Jaden Young, we realized the redesign should amplify Amazon Music’s existing strengths rather than mimic competitors, making its unique ecosystem advantages clear, emotional, and hard to replace.
+            </div>
+            </div>
+          </div>
+          <div class="frame-each-section" style="padding: 108px 0 108px 0; gap: 0;">
+            <div style="font-size: 64px; font-family: 'American Typewriter', 'Courier New', serif; font-weight: 700; line-height: 1.2; color: var(--color-white);">
+              Let's build something.<br>Together!
+            </div>
+            <div style="margin-top: 48px;">
+              <div class="footer-text" style="position: relative; right: auto; bottom: auto; width: auto;">
+                <img class="icon" src="linkedin.png" />
+                <img class="icon" src="email.png" />
+                <div class="location-setting">
+                  <img class="icon" src="location.png" />
+                  <div class="body-black">New York City</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Lightbox overlay -->
+  <div id="lightbox-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center; cursor:pointer;">
+    <img id="lightbox-img" style="width:920px; max-width:90vw; max-height:90vh; object-fit:contain; pointer-events:none;" />
+  </div>
+
+  <!-- Custom scrollbar fixed to right edge -->
+  <div id="sb-track" style="position: fixed; right: 0; top: 0; bottom: 0; width: 6px; background: transparent; z-index: 200; display: none;">
+    <div id="sb-thumb" style="position: absolute; right: 0; width: 6px; background: var(--color-lightgrey); border-radius: 3px;"></div>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      var rp = document.querySelector('.right-panel');
+      var el = document.getElementById(id);
+      if (!el) return;
+      var rpRect = rp.getBoundingClientRect();
+      var elRect = el.getBoundingClientRect();
+      rp.scrollTo({ top: rp.scrollTop + elRect.top - rpRect.top, behavior: 'smooth' });
+    }
+    const nav = document.querySelector('.nav');
+    const rightPanel = document.querySelector('.right-panel');
+    const heroEl = document.querySelector('.hero');
+    const bodyEl = document.querySelector('.frame-project-body');
+    const sbTrack = document.getElementById('sb-track');
+    const sbThumb = document.getElementById('sb-thumb');
+
+    // --- Nav hide/show ---
+    let lastNavY = 0;
+    function updateNav(y) {
+      if (y > lastNavY && y > 10) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastNavY = y;
+    }
+
+    // --- Section detection: only hero or body ---
+    function inHero() { return window.scrollY < heroEl.offsetHeight * 0.9; }
+
+    // --- Snap helpers ---
+    let snapping = false;
+    let snapCooldown = false;
+    let snapCooldownTimer = null;
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function snapTo(el) {
+      if (snapping || snapCooldown) return;
+      snapping = true;
+      snapCooldown = true;
+      const startY = window.scrollY;
+      const targetY = el.offsetTop;
+      const duration = 600;
+      const startTime = performance.now();
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + (targetY - startY) * easeInOut(progress));
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          window.scrollTo(0, targetY);
+          snapping = false;
+          clearTimeout(snapCooldownTimer);
+          snapCooldownTimer = setTimeout(() => { snapCooldown = false; }, 400);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // --- Custom scrollbar ---
+    function updateCustomScrollbar() {
+      const scrollable = rightPanel.scrollHeight - rightPanel.clientHeight;
+      if (scrollable <= 0) return;
+      const ratio = rightPanel.scrollTop / scrollable;
+      const trackH = window.innerHeight;
+      const thumbH = Math.max(40, (rightPanel.clientHeight / rightPanel.scrollHeight) * trackH);
+      sbThumb.style.height = thumbH + 'px';
+      sbThumb.style.top = ratio * (trackH - thumbH) + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+      updateNav(window.scrollY);
+      const inBody = !inHero();
+      sbTrack.style.display = inBody ? 'block' : 'none';
+      if (inBody) updateCustomScrollbar();
+    });
+
+    rightPanel.addEventListener('scroll', () => {
+      updateNav(rightPanel.scrollTop);
+      updateCustomScrollbar();
+    });
+
+    // --- Wheel intercept ---
+    function isAtBottom(el) { return el.scrollTop + el.clientHeight >= el.scrollHeight - 6; }
+    function isAtTop(el)    { return el.scrollTop <= 6; }
+
+    document.addEventListener('wheel', (e) => {
+      if (snapping) { e.preventDefault(); return; }
+
+      if (inHero()) {
+        if (e.deltaY > 0) {
+          e.preventDefault();
+          rightPanel.scrollTop = 0;
+          snapTo(bodyEl);
+        }
+        // scrolling up in hero: natural browser scroll
+
+      } else {
+        // in body — check if the event target is inside a horizontally scrollable container
+        const hScroll = e.composedPath().find(el =>
+          el !== rightPanel && el.scrollWidth > el.clientWidth + 2 &&
+          getComputedStyle(el).overflowX === 'auto'
+        );
+        if (hScroll && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          // horizontal scroll intent inside a scrollable container — let browser handle
+          return;
+        }
+
+        e.preventDefault();
+        if (e.deltaY > 0) {
+          rightPanel.scrollTop += e.deltaY;
+        } else {
+          if (!isAtTop(rightPanel)) {
+            rightPanel.scrollTop += e.deltaY;
+          } else if (!snapCooldown) {
+            snapTo(heroEl);
+          }
+        }
+      }
+    }, { passive: false });
+
+    // --- Lightbox ---
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxOverlay.style.display = 'flex';
+      });
+    });
+
+    lightboxOverlay.addEventListener('click', () => {
+      lightboxOverlay.style.display = 'none';
+      lightboxImg.src = '';
+    });
+  </script>
+</body>
+</html>
