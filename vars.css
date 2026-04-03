@@ -1,0 +1,18 @@
+/* Figma Styles of your File */
+:root {
+  /* Colors */
+  --1: radial-gradient(
+      closest-side,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    linear-gradient(
+      131.68deg,
+      rgba(70, 17, 119, 0.2) 0%,
+      rgba(70, 17, 119, 0) 100%
+    );
+
+  /* Fonts */
+  /* Effects */
+}
+/* Figma Color Variables of your File */

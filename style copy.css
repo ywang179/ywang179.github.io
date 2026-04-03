@@ -80,6 +80,7 @@
   font-weight: var(--b3-weight);
   white-space: nowrap;
   cursor: pointer;
+  text-decoration: none;
 }
 .nav-button-1:hover,
 .nav-button-2:hover,
