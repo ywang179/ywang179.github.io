@@ -515,6 +515,7 @@ html, body {
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
+  width: 920px;
 }
 .title {
   flex-shrink: 0;
