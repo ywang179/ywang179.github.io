@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./website-icon.png">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>Youyuan's Portfolio</title>
+</head>
+<body>
+  <div class="homepage">
+    <div class="nav">
+      <div class="nav-buttons">
+        <a class="nav-button-1 unselected" href="index.html">Featured Work</a>
+        <a class="nav-button-2" href="playground_index.html">Playground</a>
+        <a class="nav-button-3 unselected" href="aboutme_index.html">About Me</a>
+      </div>
+      </div>
+    </div>
+    <div class="frame-play">
+      <div class="frame-2147207436">
+        <div class="title">
+          <div class="playgro">Playgro</div>
+          <div class="u">u</div>
+          <div class="n">n</div>
+          <div class="d">d</div>
+        </div>
+        <div class="horizon-card" data-pdf="2026 Amazon Music_GWY.pdf">
+          <div class="superveggie-thumbnail">
+            <img class="thumbnail-1" src="2026 Amazon Music.png"/>
+          </div>
+          <div class="horizon-text">
+            <div class="frame-tags">
+              <div class="frame-tag">2026</div>
+              <div class="frame-tag">Product Strategy</div>
+              <div class="frame-tag">
+                AI-Powered Editing
+              </div>
+            </div>
+            <div
+              class="reframing-health-data-into-a-guided-understandable-experience-that-empowers-everyday-decisions"
+            >
+            Turning Amazon Music from an Artist IP amplifer to an Artist IP co-builder
+            </div>
+          </div>
+         </div>
+        <div class="horizon-card" data-pdf="SuperVeggie_Usability Report.pdf">
+          <div class="superveggie-thumbnail">
+            <img class="thumbnail-1" src="superveggie-thumbnail.png" />
+          </div>
+          <div class="horizon-text">
+            <div class="frame-tags">
+              <div class="frame-tag">2025</div>
+              <div class="frame-tag">Client Project</div>
+              <div class="frame-tag">APP</div>
+            </div>
+            <div
+              class="reframing-health-data-into-a-guided-understandable-experience-that-empowers-everyday-decisions"
+            >
+              Reframing health data into a guided, understandable experience that
+              empowers everyday decisions
+            </div>
+          </div>
+        </div>
+        <div class="horizon-card" data-pdf="Givingli_Heuristic Evaluation Report.pdf">
+          <div class="superveggie-thumbnail">
+            <img class="thumbnail-1" src="givingli-thumbnail.png"/>
+          </div>
+          <div class="horizon-text">
+            <div class="frame-tags">
+              <div class="frame-tag">2025</div>
+              <div class="frame-tag">APP</div>
+              <div class="frame-tag">
+                Heuristic Evaluation Report
+              </div>
+            </div>
+            <div
+              class="reframing-health-data-into-a-guided-understandable-experience-that-empowers-everyday-decisions"
+            >
+            Reducing cognitive load by clarifying system rules and unifying key
+            flows across the gifting journey
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- PDF Overlay -->
+    <div id="pdf-overlay">
+      <div id="pdf-overlay-bg"></div>
+      <div id="pdf-modal">
+        <div id="pdf-controls">
+          <button id="pdf-zoom-out">−</button>
+          <span id="pdf-zoom-label">100%</span>
+          <button id="pdf-zoom-in">+</button>
+          <button id="pdf-close">✕</button>
+        </div>
+        <div id="pdf-scroll-area">
+          <div id="pdf-frame-wrapper">
+            <iframe id="pdf-frame" src=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="frame-footer">
+        <div class="title">
+          Let's build something.<br>Together!
+        </div>
+        <div class="footer-buttom">
+          <div class="footer-text">
+            <a href="https://www.linkedin.com/in/youyuan-wang-5b9712253" target="_blank"><img class="icon" src="linkedin.png" /></a>
+            <a href="mailto:ywang179@pratt.edu"><img class="icon" src="email.png" /></a>
+            <div class="location-setting">
+              <div class="description">Built with Claude Code </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    const overlay = document.getElementById('pdf-overlay');
+    const frame = document.getElementById('pdf-frame');
+    const wrapper = document.getElementById('pdf-frame-wrapper');
+    const zoomLabel = document.getElementById('pdf-zoom-label');
+    const BASE_W = 860;
+    const BASE_H = 5000;
+    let zoom = 1;
+
+    function applyZoom() {
+      frame.style.transform = 'scale(' + zoom + ')';
+      wrapper.style.width = (BASE_W * zoom) + 'px';
+      wrapper.style.height = (BASE_H * zoom) + 'px';
+      zoomLabel.textContent = Math.round(zoom * 100) + '%';
+    }
+
+    function openPdf(src) {
+      zoom = 1;
+      frame.src = src + '#toolbar=0&zoom=page-width';
+      applyZoom();
+      overlay.style.display = 'flex';
+    }
+
+    function closePdf() {
+      overlay.style.display = 'none';
+      frame.src = '';
+    }
+
+    document.querySelectorAll('.horizon-card[data-pdf]').forEach(function(card) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function() {
+        openPdf(card.dataset.pdf);
+      });
+    });
+
+    document.getElementById('pdf-close').addEventListener('click', closePdf);
+    document.getElementById('pdf-overlay-bg').addEventListener('click', closePdf);
+
+    document.getElementById('pdf-zoom-in').addEventListener('click', function() {
+      if (zoom < 2) {
+        zoom = Math.min(2, parseFloat((zoom + 0.25).toFixed(2)));
+        applyZoom();
+      }
+    });
+
+    document.getElementById('pdf-zoom-out').addEventListener('click', function() {
+      if (zoom > 0.5) {
+        zoom = Math.max(0.5, parseFloat((zoom - 0.25).toFixed(2)));
+        applyZoom();
+      }
+    });
+  </script>
+</body>
+</html>
