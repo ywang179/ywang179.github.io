@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="./2026portfolio_pawtner_style.css">
+  <link rel="stylesheet" href="./2026portfolio_pawtner_vars.css">
+  <style>
+    html {
+      height: 100%;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+    html::-webkit-scrollbar { display: none; }
+    body {
+      height: auto;
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+    /* Hero: 920px fixed when <=1440px, full width when >1440px */
+    .crm-hero {
+      margin-top: var(--nav-height, 0px);
+      height: calc(100vh - var(--nav-height, 0px));
+      overflow-x: scroll;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: row;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .crm-hero::-webkit-scrollbar { display: none; }
+    .crm-frame-hero {
+      flex-shrink: 0;
+      width: 1440px;
+      height: calc(100vh - var(--nav-height, 0px));
+      scroll-snap-align: start;
+      overflow: hidden;
+    }
+    @media (min-width: 1441px) {
+      .crm-frame-hero { width: 100vw; }
+    }
+    .hero-tab-link {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .hero-tab-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Page content — centered column */
+    .page-content {
+      width: 920px;
+      margin: 0 auto;
+      padding-top: var(--nav-height, 0px);
+    }
+    </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-buttons">
+      <div class="nav-button-1 unselected" href="index.html">Featured Work</div>
+      <div class="nav-button-2 unselected">Playground</div>
+      <div class="nav-button-3 unselected">About Me</div>
+      <div class="nav-button-4 unselected">Resume</div>
+    </div>
+  </div>
+  <div class="page-content">
+      <img src="pawtner.png" style="width: 920px; height: auto; display: block; margin-bottom: 48px;" />
+      <div class="frame-project-title">
+        <div class="h1">
+          A cozy way to prepare for pet care
+        </div>
+        <div
+          class="body-grey"
+        >
+        Preparing potential first-Time adopters through guided pet care learning
+        </div>
+      </div>
+      <div class="frame-project-bg">
+        <div class="frame-project-intro">
+          <div class="frame-project-intro-item">
+            <div class="body-grey">Team</div>
+            <div class="body-black">2 Product Designers (Me)</div>
+          </div>
+          <div class="frame-project-intro-item">
+            <div class="body-grey">Project Type</div>
+            <div class="body-black">Passion Project</div>
+          </div>
+          <div class="frame-project-intro-item">
+            <div class="body-grey">Duration</div>
+            <div class="body-black">2025.3-4</div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-each-section" id="section-business-goal">
+        <div class="frame-title">
+          <div class="body-grey">Initial Problem Discovery</div>
+          <div class="h2">
+            I would love a dog! But on second thought... pet care feels overwhelming. Am I ready?
+          </div>
+        </div>          
+        <div class="body-black">
+          This project was inspired by our own experiences with pet care. After moving to NYC, away from family and friends, I considered getting a dog for companionship.
+          But as a first-time pet owner, I realized I had little understanding of the real responsibilities behind pet ownership and began asking myself: “Am I actually ready for this?”
+          Research shows that nearly 1 in 10 adopted pets are no longer in their adoptive homes within six months, often due to mismatched expectations.
+          This led us to a key question:</div>
+        </div>
+      <div class="frame-each-section">
+        <div class="h2" style="text-align: center; width: 920px; margin: 72px 0;">
+          What if we could create a way for people to 
+          {explore what pet care actually involves}
+          before they make a real commitment?
+        </div>
+      </div>
+      <div class="frame-each-section" style="width: 100vw; max-width: 100%; padding: 0 0 24px; box-sizing: border-box;">
+        <div class="h-scroll-container" style="overflow-x: auto; display: flex; gap: 16px; width: 100%; padding: 0 16px; -webkit-overflow-scrolling: touch;">
+          <img src="pawtner_final_1.png" class="lightbox-trigger" style="width: 920px; min-width: 920px; height: auto; display: block; border-radius: 12px;" />
+          <img src="pawtner_final_2.png" class="lightbox-trigger" style="width: 920px; min-width: 920px; height: auto; display: block; border-radius: 12px;" />
+          <img src="pawtner_final_3.png" class="lightbox-trigger" style="width: 920px; min-width: 920px; height: auto; display: block; border-radius: 12px;" />
+        </div>
+      </div>
+      <div class="frame-each-section">
+        <div class="h2" style="text-align: center; width: 920px; margin: 72px 0;">
+          🤔 What did our process look like?
+        </div>
+      </div>
+      <div class="frame-each-section" id="section-persona-user-journeys">
+        <div class="frame-title">
+          <div class="body-grey">Personas &amp; User Journeys</div>
+          <div class="h2">
+            Potential pet owners often underestimate the challenges of pet ownership in real life.
+          </div>
+          <img src="pawnter_user research_journey.png" style="width: 920px; height: auto; display: block; margin-top: 48px;" />
+        </div>
+        <div class="frame-title">
+          <div class="body-grey" style="margin-top: 96px;">Iteration</div>
+          <div class="h2">
+            The first version worked well, but later iterations made the experience feel more engaging and fun.
+          </div>
+          <img src="pawnter_iteration_1.png" style="width: 920px; height: auto; display: block; margin-top: 48px;" />
+          <img src="pawnter_iteration_2.png" style="width: 920px; height: auto; display: block; margin-top: 48px;" />
+          <img src="pawnter_iteration_3.png" style="width: 920px; height: auto; display: block; margin-top: 48px;" />
+        </div>
+        <div class="frame-title">
+          <div class="body-grey" style="margin-top: 96px;">Reflection</div>
+          <div class="h2">
+            From Simulation to Real-World Readiness
+          </div>
+          <div class="body-black">
+          A mentor's challenge reframed everything: does Pawtner prepare users for real pet ownership, or just make them feel ready?
+Looking back, we over-indexed on engagement and emotional bonding — and underrepresented the friction, uncertainty, and difficult trade-offs that real ownership demands. The simulation was approachable, but approachable isn't the same as accurate.
+If I iterated again, I'd design consequence-driven scenarios — conflicting schedules, unexpected vet bills, long-term commitment pressure — and redefine success not as completion, but as whether users build a more honest mental model of what owning a pet actually costs them.</div>
+          </div>
+      </div>
+        <div class="frame-each-section" style="padding: 108px 0; gap: 0;">
+          <div style="font-size: 64px; font-family: 'American Typewriter', 'Courier New', serif; font-weight: 700; line-height: 1.2;">
+            Let's build something.<br>Together!
+          </div>
+          <div style="margin-top: 48px;">
+            <div class="footer-text" style="position: relative; right: auto; bottom: auto; width: auto;">
+              <img class="icon" src="linkedin-black.png" />
+              <img class="icon" src="email-black.png" />
+              <div class="location-setting">
+                <img class="icon" src="location-black.png" />
+                <div class="body-black">New York City</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- Lightbox overlay -->
+  <div id="lightbox-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:1000; overflow:hidden; user-select:none;">
+    <button id="lightbox-close" style="position:absolute; top:20px; right:24px; z-index:10; background:rgba(0,0,0,0.5); color:#fff; border:none; border-radius:50%; width:36px; height:36px; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;">✕</button>
+    <div id="lightbox-zoom-label" style="position:absolute; top:20px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.45); color:#fff; font-size:13px; padding:4px 12px; border-radius:20px; pointer-events:none; opacity:0; transition:opacity 0.3s; z-index:10;">100%</div>
+    <div id="lightbox-stage" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+      <img id="lightbox-img" style="width:920px; height:auto; transform-origin:center center; will-change:transform; pointer-events:none; display:block;" />
+    </div>
+  </div>
+
+  <!-- Custom scrollbar fixed to right edge -->
+  <div id="sb-track" style="position: fixed; right: 0; top: 0; bottom: 0; width: 6px; background: transparent; z-index: 200; display: none;">
+    <div id="sb-thumb" style="position: absolute; right: 0; width: 6px; background: var(--color-lightgrey); border-radius: 3px;"></div>
+  </div>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    const heroEl = document.querySelector('.crm-hero');
+    const pageContentEl = document.querySelector('.page-content');
+    const sbTrack = document.getElementById('sb-track');
+    const sbThumb = document.getElementById('sb-thumb');
+
+    // --- Nav hide/show ---
+    let lastNavY = 0;
+    function updateNav(y) {
+      if (y > lastNavY && y > 10) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastNavY = y;
+    }
+
+    // --- Section detection: only hero or body ---
+    function inHero() { return window.scrollY < heroEl.offsetHeight * 0.9; }
+
+    // --- Snap helpers ---
+    let snapping = false;
+    let snapCooldown = false;
+    let snapCooldownTimer = null;
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function snapTo(el) {
+      if (snapping || snapCooldown) return;
+      snapping = true;
+      snapCooldown = true;
+      const startY = window.scrollY;
+      const targetY = el.offsetTop;
+      const duration = 600;
+      const startTime = performance.now();
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + (targetY - startY) * easeInOut(progress));
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          window.scrollTo(0, targetY);
+          snapping = false;
+          clearTimeout(snapCooldownTimer);
+          snapCooldownTimer = setTimeout(() => { snapCooldown = false; }, 400);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // --- Custom scrollbar ---
+    function updateCustomScrollbar() {
+      const totalH = document.documentElement.scrollHeight;
+      const viewH = window.innerHeight;
+      const scrollable = totalH - viewH;
+      if (scrollable <= 0) return;
+      const ratio = window.scrollY / scrollable;
+      const trackH = viewH;
+      const thumbH = Math.max(40, (viewH / totalH) * trackH);
+      sbThumb.style.height = thumbH + 'px';
+      sbThumb.style.top = ratio * (trackH - thumbH) + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+      updateNav(window.scrollY);
+      const inBody = !inHero();
+      sbTrack.style.display = inBody ? 'block' : 'none';
+      if (inBody) updateCustomScrollbar();
+    });
+
+    // --- Wheel intercept — only for hero↔body snap transition ---
+    document.addEventListener('wheel', (e) => {
+      if (snapping) { e.preventDefault(); return; }
+
+      const hScroll = e.target.closest('.h-scroll-container');
+      if (hScroll && Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+      if (inHero() && e.deltaY > 0) {
+        e.preventDefault();
+        snapTo(pageContentEl);
+      } else if (!inHero() && e.deltaY < 0 && window.scrollY <= heroEl.offsetHeight + 10 && !snapCooldown) {
+        e.preventDefault();
+        snapTo(heroEl);
+      }
+    }, { passive: false });
+
+    // --- Lightbox Zoom & Pan ---
+    const lightboxOverlay  = document.getElementById('lightbox-overlay');
+    const lightboxStage    = document.getElementById('lightbox-stage');
+    const lightboxImg      = document.getElementById('lightbox-img');
+    const lightboxClose    = document.getElementById('lightbox-close');
+    const lightboxZoomLabel = document.getElementById('lightbox-zoom-label');
+
+    const MIN_SCALE = 0.5;
+    let MAX_SCALE = 3;
+    let lbScale = 1, lbTx = 0, lbTy = 0;
+    let lbDragging = false, lbDragMoved = false;
+    let lbDragStartX, lbDragStartY, lbDragStartTx, lbDragStartTy;
+    let lbZoomTimer;
+    let lbLastTouchDist = null, lbLastTouchScale = 1;
+
+    function lbClamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    function lbGetBounds() {
+      const iw = lightboxImg.offsetWidth  * lbScale;
+      const ih = lightboxImg.offsetHeight * lbScale;
+      const ow = lightboxOverlay.offsetWidth;
+      const oh = lightboxOverlay.offsetHeight;
+      return {
+        maxTx: Math.max(0, (iw - ow) / 2),
+        maxTy: Math.max(0, (ih - oh) / 2)
+      };
+    }
+
+    function lbApply(animate) {
+      const { maxTx, maxTy } = lbGetBounds();
+      lbTx = lbClamp(lbTx, -maxTx, maxTx);
+      lbTy = lbClamp(lbTy, -maxTy, maxTy);
+      lightboxImg.style.transition = animate ? 'transform 0.25s ease' : 'none';
+      lightboxImg.style.transform  = `translate(${lbTx}px,${lbTy}px) scale(${lbScale})`;
+      lightboxOverlay.style.cursor = lbScale > 1 ? (lbDragging ? 'grabbing' : 'grab') : 'default';
+    }
+
+    function lbShowZoom() {
+      lightboxZoomLabel.textContent = Math.round(lbScale * 100) + '%';
+      lightboxZoomLabel.style.opacity = '1';
+      clearTimeout(lbZoomTimer);
+      lbZoomTimer = setTimeout(() => { lightboxZoomLabel.style.opacity = '0'; }, 1500);
+    }
+
+    function lbZoomAt(cx, cy, newScale) {
+      newScale = lbClamp(newScale, MIN_SCALE, MAX_SCALE);
+      const ratio = newScale / lbScale;
+      lbTx = cx + (lbTx - cx) * ratio;
+      lbTy = cy + (lbTy - cy) * ratio;
+      lbScale = newScale;
+      lbApply(false);
+      lbShowZoom();
+    }
+
+    function lbReset() {
+      lbScale = 1; lbTx = 0; lbTy = 0;
+      lightboxImg.style.transform = '';
+      lightboxImg.style.transition = '';
+      lightboxOverlay.style.cursor = 'default';
+    }
+
+    function lbClose() {
+      lightboxOverlay.style.display = 'none';
+      lightboxImg.src = '';
+      lbReset();
+    }
+
+    // Open
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        MAX_SCALE = parseFloat(img.dataset.maxScale) || 3;
+        lbReset();
+        lightboxImg.src = img.src;
+        lightboxOverlay.style.display = 'block';
+      });
+    });
+
+    // Close button
+    lightboxClose.addEventListener('click', lbClose);
+
+    // Click background to close (only if not dragged)
+    lightboxStage.addEventListener('click', (e) => {
+      if (!lbDragMoved && e.target === lightboxStage) lbClose();
+    });
+
+    // Wheel zoom (toward cursor)
+    lightboxOverlay.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = lightboxOverlay.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width  / 2;
+      const cy = e.clientY - rect.top  - rect.height / 2;
+      const delta = e.deltaY < 0 ? 0.12 : -0.12;
+      lbZoomAt(cx, cy, lbScale * (1 + delta));
+    }, { passive: false });
+
+    // Mouse drag (pan)
+    lightboxOverlay.addEventListener('mousedown', (e) => {
+      if (e.target === lightboxClose) return;
+      lbDragging = true; lbDragMoved = false;
+      lbDragStartX = e.clientX; lbDragStartY = e.clientY;
+      lbDragStartTx = lbTx;    lbDragStartTy = lbTy;
+      lightboxOverlay.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!lbDragging) return;
+      const dx = e.clientX - lbDragStartX, dy = e.clientY - lbDragStartY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) lbDragMoved = true;
+      lbTx = lbDragStartTx + dx;
+      lbTy = lbDragStartTy + dy;
+      lbApply(false);
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (!lbDragging) return;
+      lbDragging = false;
+      lightboxOverlay.style.cursor = lbScale > 1 ? 'grab' : 'default';
+    });
+
+    // Double-click: toggle 100% ↔ 200%
+    lightboxOverlay.addEventListener('dblclick', (e) => {
+      if (e.target === lightboxClose) return;
+      const rect = lightboxOverlay.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width  / 2;
+      const cy = e.clientY - rect.top  - rect.height / 2;
+      const target = lbScale > 1.1 ? 1 : 2;
+      lbTx = lbTy = 0;
+      lbScale = 1;
+      lbZoomAt(cx, cy, target);
+      lbApply(true);
+    });
+
+    // Touch: pinch zoom + drag
+    lightboxOverlay.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        lbLastTouchDist  = Math.hypot(dx, dy);
+        lbLastTouchScale = lbScale;
+      } else if (e.touches.length === 1) {
+        lbDragging = true; lbDragMoved = false;
+        lbDragStartX = e.touches[0].clientX; lbDragStartY = e.touches[0].clientY;
+        lbDragStartTx = lbTx; lbDragStartTy = lbTy;
+      }
+    }, { passive: true });
+
+    lightboxOverlay.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (e.touches.length === 2 && lbLastTouchDist) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const dist = Math.hypot(dx, dy);
+        const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - lightboxOverlay.offsetWidth  / 2;
+        const my = (e.touches[0].clientY + e.touches[1].clientY) / 2 - lightboxOverlay.offsetHeight / 2;
+        lbZoomAt(mx, my, lbLastTouchScale * (dist / lbLastTouchDist));
+      } else if (e.touches.length === 1 && lbDragging) {
+        const dx = e.touches[0].clientX - lbDragStartX;
+        const dy = e.touches[0].clientY - lbDragStartY;
+        lbDragMoved = true;
+        lbTx = lbDragStartTx + dx;
+        lbTy = lbDragStartTy + dy;
+        lbApply(false);
+      }
+    }, { passive: false });
+
+    lightboxOverlay.addEventListener('touchend', () => {
+      lbDragging = false;
+      lbLastTouchDist = null;
+    }, { passive: true });
+  </script>
+</body>
+</html>
