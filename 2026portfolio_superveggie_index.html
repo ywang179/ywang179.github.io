@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="./2026portfolio_superveggie_style.css">
+  <link rel="stylesheet" href="./2026portfolio_superveggie_vars.css">
+  <style>
+    html {
+      height: 100%;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+    html::-webkit-scrollbar { display: none; }
+    body {
+      height: auto;
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .nav.hidden {
+      transform: translateY(-100%);
+    }
+    /* Hero: 920px fixed when <=1440px, full width when >1440px */
+    .crm-hero {
+      margin-top: var(--nav-height, 0px);
+      height: calc(100vh - var(--nav-height, 0px));
+      overflow-x: scroll;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: row;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .crm-hero::-webkit-scrollbar { display: none; }
+    .crm-frame-hero {
+      flex-shrink: 0;
+      width: 1440px;
+      height: calc(100vh - var(--nav-height, 0px));
+      scroll-snap-align: start;
+      overflow: hidden;
+    }
+    @media (min-width: 1441px) {
+      .crm-frame-hero { width: 100vw; }
+    }
+    .hero-tab-link {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .hero-tab-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Page content — centered column */
+    .page-content {
+      width: 920px;
+      margin: 0 auto;
+      padding-top: var(--nav-height, 0px);
+    }
+    </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-buttons">
+      <div class="nav-button-1 unselected" href="index.html">Featured Work</div>
+      <div class="nav-button-2 unselected">Playground</div>
+      <div class="nav-button-3 unselected">About Me</div>
+      <div class="nav-button-4 unselected">Resume</div>
+    </div>
+  </div>
+  <div class="page-content">
+      <img src="superveggie.png" style="width: 920px; height: auto; display: block; margin-bottom: 48px;" />
+      <div class="frame-project-title">
+        <div class="h1">
+          From Health Awareness to Health Action
+        </div>
+        <div
+          class="body-grey"
+        >
+        Through an 8-user study across sleep tracking and meal browsing, this report identifies where the experience stalls and how redesigned flows can turn health data into decisions users actually act on.
+        </div>
+      </div>
+      <div class="frame-project-bg">
+        <div class="frame-project-intro">
+          <div class="frame-project-intro-item">
+            <div class="body-grey">Client</div>
+            <div class="body-black">Super Veggie</div>
+          </div>
+          <div class="frame-project-intro-item">
+            <div class="body-grey">Team</div>
+            <div class="body-black">4 Researchers (Me)</div>
+          </div>
+          <div class="frame-project-intro-item">
+            <div class="body-grey">Duration</div>
+            <div class="body-black">2025.11-12</div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-each-section" id="section-business-goal">
+        <div class="frame-title">
+          <div class="body-grey">Context</div>
+          <div class="h2">
+            Extending the Meal Experience Into Sleep Tracking
+          </div>
+        </div>          
+        <div class="body-black">
+          Inspired by Bryan Johnson's longevity protocol, Super Veggie launched in 2022 as a couple-owned meal delivery service offering ready-to-eat organic meals. This fall, the team expanded its scope by integrating a sleep tracking MVP into the original app, moving from feeding users well to helping them rest well. With the new feature live, founder Nick wanted to understand how real users were experiencing both sides of the product. That question drove this study: an 8-user moderated usability evaluation across Superveggie's sleep tracking and meal browsing flows, producing a prioritised set of findings and actionable redesign recommendations.</div>
+        </div>
+      
+      <div class="frame-each-section">
+        <div class="frame-title">
+          <div class="body-grey">Timeline &amp; research Methodology</div>
+        </div>
+        <img src="superveggie_timeline.png" style="width: 920px; height: auto; display: block;" />
+      </div>
+
+      <div class="frame-each-section" style="padding-top: 72px;">
+        <div class="frame-title">
+          <div class="body-grey">Participant Profile</div>
+          <div class="h2">
+            Health-aware ones, but mostly seeing Super Veggie with fresh eyes
+          </div>
+        </div>
+        <div class="body-black">
+          This study included 8 participants, primarily first-time users, across different age groups and sleep habits. Notably, all participants were healthcare providers with prior experience using Apple Watch for sleep and health tracking.
+        </div>
+        <img src="superveggie_profile.png" style="width: 920px; height: auto; display: block;" />
+      </div>
+
+      <div class="frame-each-section" style="padding-top: 72px;">
+        <div class="h2" style="text-align: center; width: 920px; margin: 72px 0;">
+          How might we ensure </br>
+          1. {the sleep data into meaningful, actionable insights} </br>
+          2. {the meal order flow helps informed, health-driven decisions} </br>
+          while remaining intuitive and satisfying, especially for first-time users?
+        </div>
+      </div>
+      
+      <div class="frame-each-section" style="padding-top: 72px;">
+        <div class="frame-title">
+          <div class="body-grey">Recommendation #1</div>
+          <div class="h2">
+            Create a more user-friendly, low-friction survey experience
+          </div>
+        </div>
+        <div class="body-black">
+          The current sleep survey feels cognitively demanding due to its long scrolling format, excessive open-ended questions, and low-visibility navigation actions. Users felt overwhelmed by the number of questions shown at once, became reluctant to type lengthy responses, and often missed the skip option placed at the bottom of the page, increasing fatigue and drop-off risk.
+To reduce friction and support faster completion, the redesign focused on simplifying interaction patterns and improving navigation clarity.
+Break the survey into shorter multi-step sections to reduce perceived effort and provide clearer progress.
+Replace open-ended inputs with multiple choice, dropdowns, or quick-tap selections whenever possible.
+Add visible skip and sticky navigation actions so users can move forward without excessive scrolling.
+        </div>
+        <img src="superveggie_decision1.png" style="width: 920px; height: auto; display: block;" />
+        </div>
+
+        <div class="frame-title" style="padding-top: 72px;">
+          <div class="body-grey">Recommendation #2</div>
+          <div class="h2">
+            Improve interpretability and clarity through personalization, definitions, and visual refinements
+          </div>
+          <div class="body-black">
+          Users struggled to interpret the Sleep Screen due to unclear score meaning, unfamiliar health metrics, and misleading visual indicators that did not match their mental models. Non-expert users were unsure whether their sleep score was good or bad, found terms like REM and SpO₂ difficult to understand, and often misread the chart indicators by assuming the green bars represented their own performance rather than the ideal range.
+To make sleep insights easier to understand and act on, the redesign focused on improving clarity, guidance, and visual interpretation.
+Add personalized messages to help users quickly interpret their sleep score and progress.
+Provide expandable explanations for metrics such as REM, Deep Sleep, and SpO₂.
+Improve chart clarity by visually distinguishing the user’s actual value from the ideal range.
+          </div>
+          <img src="superveggie_decision2.png" style="width: 920px; height: auto; display: block; padding-top: 24px;" />
+          <img src="superveggie_decision3.png" style="width: 920px; height: auto; display: block; padding-top: 24px;" />
+        </div>  
+
+        <div class="frame-each-section" style="padding-top: 72px;">
+          <div class="frame-title">
+            <div class="body-grey">Recommendation #3</div>
+            <div class="h2">
+              Making pricing and checkout actions visible for confident, seamless decisions
+            </div>
+          </div>
+          <div class="body-black" style="width: 920px; margin: 0 auto;">
+            Pricing visibility and purchase progression created friction throughout the selection flow. Prices and running totals were hidden at the bottom of the page, making affordability harder to evaluate at a glance. Users also expected to continue purchasing directly from the meal details page, but were forced to backtrack, disrupting momentum and causing confusion during checkout.
+  To create a smoother and more intuitive purchase flow, the redesign focused on improving cost visibility and reducing navigation friction.
+  Add per-meal pricing directly to product cards for easier comparison.
+  Introduce a fixed bottom bar showing the running order total with expandable fee details.
+  Add a clear checkout or “Add to Cart” action on the meal details page to support seamless progression.
+          </div>
+          <img src="superveggie_decision4.png" style="width: 920px; height: auto; display: block; padding-top: 24px;" />
+        </div>
+
+        <div class="frame-each-section" style="padding-top: 72px;">
+          <div class="frame-title">
+            <div class="body-grey">Recommendation #4</div>
+            <div class="h2">
+              Making Health and Taste Cues Visible at the Right Moments
+            </div>
+          </div>
+          <div class="body-black" style="width: 920px; margin: 0 auto;">
+            Users identified nutrition values as a key factor in meal selection, but this information is only visible on the details page, forcing repeated back-and-forth comparisons that interrupt browsing flow. At the same time, limited taste and sensory descriptions made meals difficult to evaluate, leaving users uncertain about flavor, texture, and overall eating experience.
+To support faster and more confident meal selection, the redesign focused on improving information visibility and reducing comparison effort.
+Add nutrition macros and pricing directly to product cards for faster comparison.
+Include short taste descriptions covering flavor, texture, and spice level.
+Reduce unnecessary taps and support quicker decision-making.
+          </div>
+          <img src="superveggie_decision5.png" style="width: 920px; height: auto; display: block; padding-top: 24px;" />
+        </div>
+
+        <div class="frame-each-section" style="padding-top: 72px;">
+          <div class="frame-title">
+            <div class="body-grey">Reflection</div>
+            <div class="h2">
+              Data Alone Doesn’t Drive Action
+            </div>
+          </div>
+          <div class="body-black" style="width: 920px; margin: 0 auto;">
+            One of the key learnings from the SuperVeggie project was recognizing that presenting data does not necessarily lead to behavioral change. Initially, we focused on making sleep and nutrition insights more visible and understandable, assuming that clearer data would naturally translate into better decisions.
+However, user research showed a gap between understanding and action. Even when users could interpret their sleep patterns or meal information, they often struggled to translate those insights into concrete next steps. This revealed a flawed assumption in my thinking: I treated information clarity as the endpoint, rather than a step within a larger decision-making process.
+In retrospect, the product was effective at answering “what is happening”, but weak at guiding “what should I do next.” This is especially critical in health-related contexts, where users need actionable guidance, timely prompts, and contextual support, not just passive dashboards.
+          </div>
+        </div>
+
+      <div class="frame-each-section" style="padding: 108px 0; gap: 0;">
+        <div style="font-size: 64px; font-family: 'American Typewriter', 'Courier New', serif; font-weight: 700; line-height: 1.2;">
+          Let's build something.<br>Together!
+        </div>
+        <div style="margin-top: 48px;">
+          <div class="footer-text" style="position: relative; right: auto; bottom: auto; width: auto;">
+            <img class="icon" src="linkedin-black.png" />
+            <img class="icon" src="email-black.png" />
+            <div class="location-setting">
+              <img class="icon" src="location-black.png" />
+              <div class="body-black">New York City</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div id="lightbox-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:1000; overflow:hidden; user-select:none;">
+    <button id="lightbox-close" style="position:absolute; top:20px; right:24px; z-index:10; background:rgba(0,0,0,0.5); color:#fff; border:none; border-radius:50%; width:36px; height:36px; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;">✕</button>
+    <div id="lightbox-zoom-label" style="position:absolute; top:20px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.45); color:#fff; font-size:13px; padding:4px 12px; border-radius:20px; pointer-events:none; opacity:0; transition:opacity 0.3s; z-index:10;">100%</div>
+    <div id="lightbox-stage" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+      <img id="lightbox-img" style="width:920px; height:auto; transform-origin:center center; will-change:transform; pointer-events:none; display:block;" />
+    </div>
+  </div>
+
+  <!-- Custom scrollbar fixed to right edge -->
+  <div id="sb-track" style="position: fixed; right: 0; top: 0; bottom: 0; width: 6px; background: transparent; z-index: 200; display: none;">
+    <div id="sb-thumb" style="position: absolute; right: 0; width: 6px; background: var(--color-lightgrey); border-radius: 3px;"></div>
+  </div>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    const heroEl = document.querySelector('.crm-hero');
+    const pageContentEl = document.querySelector('.page-content');
+    const sbTrack = document.getElementById('sb-track');
+    const sbThumb = document.getElementById('sb-thumb');
+
+    // --- Nav hide/show ---
+    let lastNavY = 0;
+    function updateNav(y) {
+      if (y > lastNavY && y > 10) nav.classList.add('hidden');
+      else nav.classList.remove('hidden');
+      lastNavY = y;
+    }
+
+    // --- Section detection: only hero or body ---
+    function inHero() { return window.scrollY < heroEl.offsetHeight * 0.9; }
+
+    // --- Snap helpers ---
+    let snapping = false;
+    let snapCooldown = false;
+    let snapCooldownTimer = null;
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function snapTo(el) {
+      if (snapping || snapCooldown) return;
+      snapping = true;
+      snapCooldown = true;
+      const startY = window.scrollY;
+      const targetY = el.offsetTop;
+      const duration = 600;
+      const startTime = performance.now();
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + (targetY - startY) * easeInOut(progress));
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          window.scrollTo(0, targetY);
+          snapping = false;
+          clearTimeout(snapCooldownTimer);
+          snapCooldownTimer = setTimeout(() => { snapCooldown = false; }, 400);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // --- Custom scrollbar ---
+    function updateCustomScrollbar() {
+      const totalH = document.documentElement.scrollHeight;
+      const viewH = window.innerHeight;
+      const scrollable = totalH - viewH;
+      if (scrollable <= 0) return;
+      const ratio = window.scrollY / scrollable;
+      const trackH = viewH;
+      const thumbH = Math.max(40, (viewH / totalH) * trackH);
+      sbThumb.style.height = thumbH + 'px';
+      sbThumb.style.top = ratio * (trackH - thumbH) + 'px';
+    }
+
+    window.addEventListener('scroll', () => {
+      updateNav(window.scrollY);
+      const inBody = !inHero();
+      sbTrack.style.display = inBody ? 'block' : 'none';
+      if (inBody) updateCustomScrollbar();
+    });
+
+    // --- Wheel intercept — only for hero↔body snap transition ---
+    document.addEventListener('wheel', (e) => {
+      if (snapping) { e.preventDefault(); return; }
+
+      const hScroll = e.target.closest('.h-scroll-container');
+      if (hScroll && Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+      if (inHero() && e.deltaY > 0) {
+        e.preventDefault();
+        snapTo(pageContentEl);
+      } else if (!inHero() && e.deltaY < 0 && window.scrollY <= heroEl.offsetHeight + 10 && !snapCooldown) {
+        e.preventDefault();
+        snapTo(heroEl);
+      }
+    }, { passive: false });
+
+    // --- Lightbox Zoom & Pan ---
+    const lightboxOverlay  = document.getElementById('lightbox-overlay');
+    const lightboxStage    = document.getElementById('lightbox-stage');
+    const lightboxImg      = document.getElementById('lightbox-img');
+    const lightboxClose    = document.getElementById('lightbox-close');
+    const lightboxZoomLabel = document.getElementById('lightbox-zoom-label');
+
+    const MIN_SCALE = 0.5;
+    let MAX_SCALE = 3;
+    let lbScale = 1, lbTx = 0, lbTy = 0;
+    let lbDragging = false, lbDragMoved = false;
+    let lbDragStartX, lbDragStartY, lbDragStartTx, lbDragStartTy;
+    let lbZoomTimer;
+    let lbLastTouchDist = null, lbLastTouchScale = 1;
+
+    function lbClamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    function lbGetBounds() {
+      const iw = lightboxImg.offsetWidth  * lbScale;
+      const ih = lightboxImg.offsetHeight * lbScale;
+      const ow = lightboxOverlay.offsetWidth;
+      const oh = lightboxOverlay.offsetHeight;
+      return {
+        maxTx: Math.max(0, (iw - ow) / 2),
+        maxTy: Math.max(0, (ih - oh) / 2)
+      };
+    }
+
+    function lbApply(animate) {
+      const { maxTx, maxTy } = lbGetBounds();
+      lbTx = lbClamp(lbTx, -maxTx, maxTx);
+      lbTy = lbClamp(lbTy, -maxTy, maxTy);
+      lightboxImg.style.transition = animate ? 'transform 0.25s ease' : 'none';
+      lightboxImg.style.transform  = `translate(${lbTx}px,${lbTy}px) scale(${lbScale})`;
+      lightboxOverlay.style.cursor = lbScale > 1 ? (lbDragging ? 'grabbing' : 'grab') : 'default';
+    }
+
+    function lbShowZoom() {
+      lightboxZoomLabel.textContent = Math.round(lbScale * 100) + '%';
+      lightboxZoomLabel.style.opacity = '1';
+      clearTimeout(lbZoomTimer);
+      lbZoomTimer = setTimeout(() => { lightboxZoomLabel.style.opacity = '0'; }, 1500);
+    }
+
+    function lbZoomAt(cx, cy, newScale) {
+      newScale = lbClamp(newScale, MIN_SCALE, MAX_SCALE);
+      const ratio = newScale / lbScale;
+      lbTx = cx + (lbTx - cx) * ratio;
+      lbTy = cy + (lbTy - cy) * ratio;
+      lbScale = newScale;
+      lbApply(false);
+      lbShowZoom();
+    }
+
+    function lbReset() {
+      lbScale = 1; lbTx = 0; lbTy = 0;
+      lightboxImg.style.transform = '';
+      lightboxImg.style.transition = '';
+      lightboxOverlay.style.cursor = 'default';
+    }
+
+    function lbClose() {
+      lightboxOverlay.style.display = 'none';
+      lightboxImg.src = '';
+      lbReset();
+    }
+
+    // Open
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        MAX_SCALE = parseFloat(img.dataset.maxScale) || 3;
+        lbReset();
+        lightboxImg.src = img.src;
+        lightboxOverlay.style.display = 'block';
+      });
+    });
+
+    // Close button
+    lightboxClose.addEventListener('click', lbClose);
+
+    // Click background to close (only if not dragged)
+    lightboxStage.addEventListener('click', (e) => {
+      if (!lbDragMoved && e.target === lightboxStage) lbClose();
+    });
+
+    // Wheel zoom (toward cursor)
+    lightboxOverlay.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = lightboxOverlay.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width  / 2;
+      const cy = e.clientY - rect.top  - rect.height / 2;
+      const delta = e.deltaY < 0 ? 0.12 : -0.12;
+      lbZoomAt(cx, cy, lbScale * (1 + delta));
+    }, { passive: false });
+
+    // Mouse drag (pan)
+    lightboxOverlay.addEventListener('mousedown', (e) => {
+      if (e.target === lightboxClose) return;
+      lbDragging = true; lbDragMoved = false;
+      lbDragStartX = e.clientX; lbDragStartY = e.clientY;
+      lbDragStartTx = lbTx;    lbDragStartTy = lbTy;
+      lightboxOverlay.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!lbDragging) return;
+      const dx = e.clientX - lbDragStartX, dy = e.clientY - lbDragStartY;
+      if (Math.abs(dx) > 2 || Math.abs(dy) > 2) lbDragMoved = true;
+      lbTx = lbDragStartTx + dx;
+      lbTy = lbDragStartTy + dy;
+      lbApply(false);
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (!lbDragging) return;
+      lbDragging = false;
+      lightboxOverlay.style.cursor = lbScale > 1 ? 'grab' : 'default';
+    });
+
+    // Double-click: toggle 100% ↔ 200%
+    lightboxOverlay.addEventListener('dblclick', (e) => {
+      if (e.target === lightboxClose) return;
+      const rect = lightboxOverlay.getBoundingClientRect();
+      const cx = e.clientX - rect.left - rect.width  / 2;
+      const cy = e.clientY - rect.top  - rect.height / 2;
+      const target = lbScale > 1.1 ? 1 : 2;
+      lbTx = lbTy = 0;
+      lbScale = 1;
+      lbZoomAt(cx, cy, target);
+      lbApply(true);
+    });
+
+    // Touch: pinch zoom + drag
+    lightboxOverlay.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        lbLastTouchDist  = Math.hypot(dx, dy);
+        lbLastTouchScale = lbScale;
+      } else if (e.touches.length === 1) {
+        lbDragging = true; lbDragMoved = false;
+        lbDragStartX = e.touches[0].clientX; lbDragStartY = e.touches[0].clientY;
+        lbDragStartTx = lbTx; lbDragStartTy = lbTy;
+      }
+    }, { passive: true });
+
+    lightboxOverlay.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (e.touches.length === 2 && lbLastTouchDist) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const dist = Math.hypot(dx, dy);
+        const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - lightboxOverlay.offsetWidth  / 2;
+        const my = (e.touches[0].clientY + e.touches[1].clientY) / 2 - lightboxOverlay.offsetHeight / 2;
+        lbZoomAt(mx, my, lbLastTouchScale * (dist / lbLastTouchDist));
+      } else if (e.touches.length === 1 && lbDragging) {
+        const dx = e.touches[0].clientX - lbDragStartX;
+        const dy = e.touches[0].clientY - lbDragStartY;
+        lbDragMoved = true;
+        lbTx = lbDragStartTx + dx;
+        lbTy = lbDragStartTy + dy;
+        lbApply(false);
+      }
+    }, { passive: false });
+
+    lightboxOverlay.addEventListener('touchend', () => {
+      lbDragging = false;
+      lbLastTouchDist = null;
+    }, { passive: true });
+  </script>
+</body>
+</html>
