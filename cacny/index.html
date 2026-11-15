@@ -348,4 +348,24 @@ h2.sec{margin:0;font:700 40px/1.2 var(--f-ui);color:var(--blue);text-transform:c
 document.querySelectorAll(".ai button").forEach(b=>b.addEventListener("click",()=>{const open=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!open);b.nextElementSibling.hidden=open;b.querySelector("img").src=open?"a/42908.svg":"a/85a87.svg";}));
 </script>
 
+<style id="echo-cursor">#trail{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:100}</style>
+<script id="echo-cursor-js">(()=>{
+/* cursor echo, same as the homepage: the pointer leaves small ripples that widen and fade; a click sends a bigger double ripple.
+   Grey on the page, white over dark photo bands. */
+if(matchMedia("(prefers-reduced-motion: reduce)").matches||!matchMedia("(hover: hover)").matches||document.getElementById("trail"))return;
+const tc=document.createElement("canvas");tc.id="trail";tc.setAttribute("aria-hidden","true");document.body.appendChild(tc);
+const tx=tc.getContext("2d");let dpr=1,parts=[],running=false,lx=-99,ly=-99,lt=0;
+const fit=()=>{dpr=Math.min(2,devicePixelRatio||1);tc.width=Math.round(innerWidth*dpr);tc.height=Math.round(innerHeight*dpr);};fit();addEventListener("resize",fit);
+const out=k=>1-Math.pow(1-k,3);
+const tick=now=>{tx.setTransform(dpr,0,0,dpr,0,0);tx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(p=>now-p.t<p.l+p.d);
+  for(const p of parts){const k=(now-p.t-p.d)/p.l;if(k<0)continue;const r=p.r0+(p.r1-p.r0)*out(k);tx.globalAlpha=(1-k)*p.a;tx.strokeStyle=p.c;tx.lineWidth=p.w;tx.beginPath();tx.arc(p.x,p.y,r,0,Math.PI*2);tx.stroke();}
+  tx.globalAlpha=1;if(parts.length)requestAnimationFrame(tick);else{running=false;tx.clearRect(0,0,innerWidth,innerHeight);}};
+const go=()=>{if(parts.length>80)parts.splice(0,parts.length-80);if(!running){running=true;requestAnimationFrame(tick);}};
+const colorAt=el=>el&&el.closest&&el.closest(".band,.final,.fd,.photo-band")?"#FFFFFF":"#8C8C8C";
+addEventListener("pointermove",e=>{if(e.pointerType!=="mouse")return;const t=performance.now(),dx=e.clientX-lx,dy=e.clientY-ly;
+  if(dx*dx+dy*dy<26*26&&t-lt<140)return;lx=e.clientX;ly=e.clientY;lt=t;
+  parts.push({x:e.clientX,y:e.clientY,t,d:0,l:620,r0:2,r1:16,w:1.2,a:.75,c:colorAt(e.target)});go();},{passive:true});
+addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse")return;const t=performance.now(),c=colorAt(e.target);
+  parts.push({x:e.clientX,y:e.clientY,t,d:0,l:760,r0:4,r1:34,w:1.6,a:.9,c},{x:e.clientX,y:e.clientY,t,d:140,l:760,r0:4,r1:34,w:1.2,a:.6,c});go();},{passive:true});
+})();</script>
 </body></html>
