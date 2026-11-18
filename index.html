@@ -398,7 +398,8 @@ var ALWAYS=false;
 var el=document.getElementById('yyld'),de=document.documentElement;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var seen=false;try{seen=sessionStorage.getItem('yy-loaded')==='1'}catch(e){}
-if(seen&&!ALWAYS)return;
+var internal=false;try{internal=!!document.referrer&&new URL(document.referrer).host===location.host}catch(e){}
+if((seen||internal)&&!ALWAYS){try{sessionStorage.setItem('yy-loaded','1')}catch(e){}return}
 try{sessionStorage.setItem('yy-loaded','1')}catch(e){}
 el.hidden=false;de.classList.add('yyld-on');
 var done=false,ts=[];
