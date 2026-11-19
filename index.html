@@ -445,6 +445,23 @@ html[data-theme="dark"] .hmore .full{--black:#F2F2F2;--white:#121212;--grey:#9D9
 .hmore .full .w-row>.arw.arw{margin-block:-12px -8px;height:32px!important}
 .hmore .full .w-be>.arw.arw{margin-block:-6px -2px;height:20px!important}
 }
+
+@media (max-width:759px){
+.hmore .full .w-row>.arw.arw::after,.hmore .full .w-be>.arw.arw::after{left:calc(50% - 3.5px)!important;right:auto!important;top:auto!important;bottom:1px!important;width:7px!important;height:7px!important;box-sizing:border-box;transform:rotate(45deg)!important;border:0!important;border-right:1.6px solid var(--grey)!important;border-bottom:1.6px solid var(--grey)!important}
+.hmore .full .w-row>.arw.arw,.hmore .full .w-be>.arw.arw{margin-left:auto!important;margin-right:auto!important;justify-self:center!important}
+.hmore .full .sp.sp .ah{box-sizing:border-box;width:7px;height:7px;transform:rotate(45deg)!important;margin-left:-3.5px}
+}
+
+@media (max-width:759px){.hmore .full .w-row>.arw.arw,.hmore .full .w-be>.arw.arw{width:1.6px!important;background:var(--grey)!important;border:0!important;border-radius:1px}}
+
+@media (max-width:759px){
+.hmore .full .w-row>.arw.arw,.hmore .full .w-be>.arw.arw{width:1.5px!important}
+.hmore .full .w-row>.sp.sp:nth-child(2){background:linear-gradient(var(--grey),var(--grey)) 50% 0/1.5px 13px no-repeat!important}
+.hmore .full .w-row>.sp.sp:nth-child(4){background:linear-gradient(var(--grey),var(--grey)) 50% calc(100% - 4px)/1.5px 13px no-repeat!important}
+.hmore .full .w-row>.sp.sp::after{border-width:1.5px!important;left:calc(25% - .75px)!important;right:calc(25% - .75px)!important}
+.hmore .full .w-row>.sp.sp:nth-child(2)::after{border-bottom-width:0!important}.hmore .full .w-row>.sp.sp:nth-child(4)::after{border-top-width:0!important}
+.hmore .full .w-row>.arw.arw::after,.hmore .full .w-be>.arw.arw::after,.hmore .full .sp.sp .ah{border-right-width:1.5px!important;border-bottom-width:1.5px!important}
+}
 </style></head><body><style id="yyld-css">
 @property --yyr{syntax:'<length>';inherits:false;initial-value:0px}
 #yyld{position:fixed;inset:0;z-index:9999;background:var(--white);color:var(--black);display:grid;place-items:center;cursor:pointer}
