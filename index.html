@@ -356,8 +356,8 @@ html[data-theme="dark"] .hmore .full{--black:#F2F2F2;--white:#121212;--grey:#9D9
 }
 .hmore .idx{padding:0}.hmore .rw.tg{padding-inline:0;color:inherit}
 
-.hmore .rw.tg[aria-expanded="true"] .flowpv{display:none}.hmore .rw.tg[aria-expanded="true"]{padding-bottom:14px}
-@media (max-width:759px){.hmore .full .mids.three{display:grid!important;grid-template-columns:1fr 1fr}}
+.hmore .rw.tg[aria-expanded="true"] .flowpv{visibility:hidden;height:0;padding:0;overflow:hidden}.hmore .rw.tg[aria-expanded="true"]{padding-bottom:14px}
+@media (max-width:759px){.hmore .rw.tg[aria-expanded="true"] .flowpv{display:none}.hmore .full .mids.three{display:grid!important;grid-template-columns:1fr 1fr}}
 @media (hover:none){.hmore .rw:hover .t{transform:none}.hmore .rw:hover .arr{background:none;border-color:var(--line);color:inherit;transform:none}.hmore .rw.tg:hover .arr{transform:none}.hmore .rw:hover .pv .c0{transform:rotate(-6deg)}.hmore .rw:hover .pv .c1{transform:rotate(-1deg)}.hmore .rw:hover .pv .c2{transform:rotate(5deg)}.hmore .rw:hover .flowpv .e::after{animation:none}}
 .hmore .rw{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .hmore .rw:active .arr{transform:scale(.94)}
