@@ -437,6 +437,14 @@ html[data-theme="dark"] .hmore .full{--black:#F2F2F2;--white:#121212;--grey:#9D9
 .hmore .pv .c{width:51.2%!important}
 .hmore .pv .c0{left:5.6%!important;top:41.4%!important}.hmore .pv .c1{left:24.4%!important;top:15.7%!important}.hmore .pv .c2{left:43.2%!important;top:42.9%!important}
 @media (max-width:759px){.hmore .rw .pv,.hmore .rw .flowpv{width:100%!important;max-width:none!important}.hmore .rw .flowpv{height:auto!important;aspect-ratio:250/140;padding:0 8%}}
+
+@media (max-width:759px){
+.hmore .full .w-row>.sp.sp:nth-child(2)::after{bottom:4px}
+.hmore .full .w-row>.sp.sp:nth-child(4){background:linear-gradient(var(--grey),var(--grey)) 50% calc(100% - 4px)/1.6px 13px no-repeat!important}
+.hmore .full .sp.sp .ah{bottom:4px}
+.hmore .full .w-row>.arw.arw{margin-block:-12px -8px;height:32px!important}
+.hmore .full .w-be>.arw.arw{margin-block:-6px -2px;height:20px!important}
+}
 </style></head><body><style id="yyld-css">
 @property --yyr{syntax:'<length>';inherits:false;initial-value:0px}
 #yyld{position:fixed;inset:0;z-index:9999;background:var(--white);color:var(--black);display:grid;place-items:center;cursor:pointer}
