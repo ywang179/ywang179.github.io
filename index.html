@@ -796,17 +796,233 @@ html,body{transition:background-color .3s}
 </div></section>
 
 <section class="works" id="work" aria-label="Featured work"><div class="wrap">
-  <a class="proj" href="./crm/" data-g1="#2B8E96" data-g2="#38C5C7" data-imp="250+ hrs saved daily" data-imp-col="#2B8E96">
-    <div class="media"><canvas aria-hidden="true"></canvas><img src="a/crm.webp" alt="XDF Cultural Tourism CRM dashboard screens" width="920" height="448"></div>
+  <a class="proj" href="./crm/" data-g1="#2B8E96" data-g2="#38C5C7" data-h1="#B5F1EC" data-h2="#5FCFCF" data-imp="250+ hrs saved daily" data-imp-col="#2B8E96">
+    <div class="media"><canvas aria-hidden="true"></canvas><img class="xdf-t" src="a/xdf-title.webp" alt="XDF Cultural Tourism" width="181" height="14"><div class="hero-live cardlive" id="heroLive" aria-hidden="true"><template id="heroTpl"><style>:host{display:block;border-radius:inherit}
+
+*{box-sizing:border-box}
+
+/* stage, as in the reference: white top, soft glow + fine vertical stripes in the lower part, windows cropped by the edges */
+.stage{position:relative;overflow:hidden;aspect-ratio:2574/1456;border-radius:inherit;border:1px solid var(--line);background:var(--bg);font-family:var(--f-body);color:var(--fg)}
+.stage::before{content:"";position:absolute;left:0;right:0;bottom:0;height:72%;
+ background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 7px),radial-gradient(60% 90% at 25% 100%,var(--glow1),transparent 75%),radial-gradient(70% 90% at 85% 100%,var(--glow2),transparent 75%);
+ -webkit-mask-image:linear-gradient(transparent,#000 45%);mask-image:linear-gradient(transparent,#000 45%)}
+
+/* window = light shell with traffic lights + white rounded app panel inside (the reference's two-layer frame) */
+.win{position:absolute;padding:0 7px 7px;border-radius:20px;background:var(--shell);box-shadow:var(--sh);outline:1px solid var(--shell-edge);outline-offset:-1px}
+.win .tl{height:32px;display:flex;align-items:center;gap:8px;padding-left:9px}
+.win .tl i{width:12px;height:12px;border-radius:50%;background:#FF5F57;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}.win .tl i:nth-child(2){background:#FEBC2E}.win .tl i:nth-child(3){background:#28C840}
+.win .in{border-radius:13px;overflow:hidden;background:var(--inner);outline:1px solid var(--inner-edge);outline-offset:-1px}
+.win img{display:block;width:100%;height:auto}
+
+/* positions follow the reference */
+.w-top{left:2%;top:7%;width:21.5%;z-index:1}      /* ref: #pipeline chat → call panel, step 1 "Text first" */
+.w-main{left:15%;top:9.8%;width:71%;z-index:2}     /* ref: Attio app     → CRM homepage */
+.w-side{left:80%;top:15.5%;width:44%;z-index:1}  /* ref: video call    → lead window: call recording + AI summary */
+
+/* phone, in the terminal's place: true iPhone proportions (393 × 852 pt screen, ~3% bezel), every size in screen points via cqw */
+.phone{position:absolute;left:4%;top:33%;z-index:3;width:17%;padding:2.9%/* bezel ≈ 12pt */;border-radius:16.5% / 7.6%;background:#111214;box-shadow:inset 0 0 0 1.5px #3A3C40,inset 0 0 0 3px #1C1D20,0 40px 70px -26px rgba(10,30,35,.55)}
+.phone{padding:0}.phone .bz{padding:3.1%;border-radius:inherit}
+.scr{--u:calc(100cqw/393);position:relative;aspect-ratio:393/852;container-type:inline-size;border-radius:13.5% / 6.2%;overflow:hidden;background:#EDEDED;display:flex;flex-direction:column;font-family:-apple-system,"PingFang SC","Poppins",sans-serif;color:#111}
+.scr *{font-size:inherit}
+.isl{position:absolute;top:calc(11*var(--u));left:50%;width:calc(126*var(--u));height:calc(37*var(--u));transform:translateX(-50%);border-radius:calc(20*var(--u));background:#000;z-index:3}
+.sb{height:calc(54*var(--u));flex:none;display:flex;align-items:center;justify-content:space-between;padding:calc(4*var(--u)) calc(34*var(--u)) 0 calc(44*var(--u));font:600 calc(17*var(--u))/1 -apple-system,sans-serif}
+.sb svg{height:calc(12*var(--u));width:auto;fill:#111}
+.nav{height:calc(44*var(--u));flex:none;display:grid;grid-template-columns:calc(40*var(--u)) 1fr calc(40*var(--u));align-items:center;padding:0 calc(8*var(--u));border-bottom:.5px solid #D6D6D6;background:#EDEDED}
+.nav b{text-align:center;font:600 calc(17*var(--u))/1.2 -apple-system,sans-serif;white-space:nowrap}
+.nav svg{width:calc(22*var(--u));height:calc(22*var(--u));fill:none;stroke:#111;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chat{flex:1;padding:calc(16*var(--u)) calc(14*var(--u));display:flex;flex-direction:column;gap:calc(14*var(--u))}
+.when{align-self:center;font:400 calc(13*var(--u))/1 -apple-system,sans-serif;color:#A0A0A0}
+.msg{display:grid;grid-template-columns:calc(42*var(--u)) 1fr;gap:calc(10*var(--u));align-items:start}
+.msg .av{width:calc(42*var(--u));height:calc(42*var(--u));border-radius:calc(8*var(--u));background:#2B7CE9;display:grid;place-items:center}
+.msg .av svg{width:calc(22*var(--u));height:calc(22*var(--u));fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.msg .nm{font:400 calc(13*var(--u))/1 -apple-system,sans-serif;color:#8A8A8A;margin-bottom:calc(6*var(--u))}
+.bub{position:relative;background:#fff;border-radius:calc(8*var(--u));padding:calc(11*var(--u)) calc(13*var(--u));font:400 calc(16*var(--u))/1.45 -apple-system,sans-serif}
+.bub::before{content:"";position:absolute;left:calc(-6*var(--u));top:calc(14*var(--u));border:calc(6*var(--u)) solid transparent;border-left:0;border-right-color:#fff}
+.bub .num{color:#2B6CD9;font-weight:600;text-decoration:underline;text-underline-offset:2px;position:relative}
+.bub small{display:block;margin-top:calc(8*var(--u));padding-top:calc(8*var(--u));border-top:.5px solid #EEE;color:#9A9A9A;font-size:calc(13*var(--u))}
+.inp{height:calc(56*var(--u));flex:none;display:flex;align-items:center;gap:calc(10*var(--u));padding:0 calc(12*var(--u));background:#F7F7F7;border-top:.5px solid #D6D6D6}
+.inp span{flex:1;height:calc(36*var(--u));border-radius:calc(6*var(--u));background:#fff}
+.inp i{width:calc(28*var(--u));height:calc(28*var(--u));border-radius:50%;border:1.5px solid #333;flex:none}
+.home{height:calc(34*var(--u));flex:none;background:#F7F7F7;display:grid;place-items:center}.home::after{content:"";width:calc(134*var(--u));height:calc(5*var(--u));border-radius:3px;background:#111}
+.callbar{position:absolute;left:calc(12*var(--u));right:calc(12*var(--u));top:calc(56*var(--u));z-index:2;display:flex;align-items:center;gap:calc(10*var(--u));padding:calc(10*var(--u)) calc(14*var(--u));border-radius:calc(18*var(--u));background:#1E9E4A;color:#fff;font:600 calc(15*var(--u))/1.2 -apple-system,sans-serif;opacity:0}
+.callbar svg{width:calc(18*var(--u));height:calc(18*var(--u));fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.callbar em{margin-left:auto;font-style:normal;font-variant-numeric:tabular-nums;font-weight:500}
+.tap{position:absolute;width:calc(34*var(--u));height:calc(34*var(--u));left:30%;top:calc(-6*var(--u));border-radius:50%;background:rgba(43,108,217,.28);opacity:0}
+
+/* motion: one short story, 9s loop, only while on screen; still frame under reduced motion */
+.msg{opacity:0;transform:translateY(6px)}
+.run .msg{animation:msgIn 9s infinite}.run .tap{animation:tap 9s infinite}.run .callbar{animation:cb 9s infinite}
+@keyframes msgIn{0%,6%{opacity:0;transform:translateY(6px)}12%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes tap{0%,26%{opacity:0;transform:scale(.2)}29%{opacity:1;transform:scale(1)}36%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes cb{0%,32%{opacity:0;transform:translateY(-5px)}37%,94%{opacity:1;transform:none}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.msg,.callbar{opacity:1!important;transform:none!important}.run *{animation:none!important}}
+
+/* phone width: keep the main window and the phone */
+@media (max-width:0px){
+ .stage{aspect-ratio:4/5}
+ .w-top,.w-side{display:none}
+ .w-main{left:6%;top:6%;width:160%}
+ .phone{left:auto;right:6%;top:26%;width:46%}
+ .win{border-radius:14px;padding:0 5px 5px}.win .tl{height:22px}.win .tl i{width:8px;height:8px}
+}
+
+/* ===== outline style (per reference): hairline frames, grey window dots, no heavy shadows ===== */
+.win{background:var(--shellw)!important;box-shadow:none!important;outline:1px solid var(--wire)!important;outline-offset:-1px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:0 10px 10px!important;border-radius:18px!important}
+.win .tl{height:40px!important;padding-left:6px!important;gap:9px!important;border-bottom:1px solid var(--wire2);margin:0 -10px 10px;padding-left:16px!important}
+.win .tl i{background:var(--dot)!important;box-shadow:none!important;width:12px!important;height:12px!important}
+.win .in{border-radius:10px!important;outline:1px solid var(--wire)!important;box-shadow:0 1px 0 var(--wire2)}
+.w-main{box-shadow:0 30px 60px -40px rgba(15,30,40,.18)!important}
+/* phone as an outline device too: light hairline body, no black slab */
+.phone .bz{background:var(--shellw);border:1px solid var(--wire);border-radius:inherit;padding:3.1%;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.phone{background:none!important;box-shadow:0 30px 60px -36px rgba(15,30,40,.25)!important}
+.phone .scr{outline:1px solid var(--wire);outline-offset:-1px}
+.isl{background:#1A1B1D}
+.stage::before{opacity:.8}
+
+/* no fill: frames are lines only */
+.win{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.w-main{box-shadow:none!important}
+.phone .bz{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.phone{box-shadow:none!important}
+
+/* top-left: the call panel floats on its own, no window frame behind it */
+.w-top,.w-side{display:none!important}
+.phone{width:16%;top:37%;left:5.5%}
+.w-main{left:20%!important;top:11%!important;width:88%!important}
+@media (max-width:0px){.w-main{left:8%!important;top:6%!important;width:150%!important}.phone{width:38%;top:24%;left:4%}}
+/* frames still read as lines, but each one hides what is behind it: no crossing lines, no dots peeking out */
+.win,.phone .bz{background:var(--bg)!important}
+.w-top .in{border-radius:12px!important}
+/* slightly heavier lines */
+.win{outline-width:1.5px!important;outline-offset:-1.5px!important}.win .in{outline-width:1.5px!important}
+.win .tl{border-bottom-width:1.5px}.phone .bz{border-width:1.5px}.phone .scr{outline-width:1.5px}
+/* after the tap: the ordinary phone call screen */
+.callscr{position:absolute;inset:0;z-index:2;opacity:0;display:flex;flex-direction:column;align-items:center;padding:calc(120*var(--u)) calc(34*var(--u)) calc(70*var(--u));
+ background:linear-gradient(180deg,#3E4A50 0%,#262C30 55%,#1B1F22 100%);color:#fff;font-family:-apple-system,"PingFang SC",sans-serif}
+.callscr .who{text-align:center;display:flex;flex-direction:column;gap:calc(6*var(--u))}
+.callscr small{font-size:calc(15*var(--u));color:rgba(255,255,255,.65)}
+.callscr b{font:500 calc(34*var(--u))/1.15 -apple-system,sans-serif;letter-spacing:.01em}
+.callscr em{font-style:normal;font-size:calc(16*var(--u));color:rgba(255,255,255,.65)}
+.cgrid{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:calc(26*var(--u)) calc(22*var(--u));width:100%}
+.cb{display:flex;flex-direction:column;align-items:center;gap:calc(8*var(--u));font-size:calc(12*var(--u));color:#fff}
+.cb span{width:calc(76*var(--u));height:calc(76*var(--u));border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.cb svg{width:calc(30*var(--u));height:calc(30*var(--u));fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.end{margin-top:calc(40*var(--u));width:calc(76*var(--u));height:calc(76*var(--u));border-radius:50%;background:#EB4E3D;display:grid;place-items:center}
+.end svg{width:calc(32*var(--u));height:calc(32*var(--u));fill:#fff;stroke:none;transform:rotate(135deg)}
+.run .callscr{animation:cs 9s infinite steps(1,end)}
+@keyframes cs{0%,34%{opacity:0}35%,94%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.callscr{opacity:0!important}}
+
+
+/* ===== the whole task, 30s loop: whole homepage → scroll → tap a lead row → lead window → tap Call → call panel + phone → call → summary ===== */
+.w-main{left:11%!important;top:3.33%!important;width:78%!important}
+/* the screen sits centred, and moves right only while the phone is out */
+.run .w-main{animation:wm 30s infinite}
+@keyframes wm{0%,28.6%{transform:none}30.8%,52.8%{transform:translateX(12.4%)}55%,100%{transform:none}}
+.phone{width:16.8%;left:2.2%;top:21%;opacity:0}
+.scn{position:relative;aspect-ratio:1440/900}
+.scn .sd{position:absolute;left:0;top:0;width:14.375%;height:100%}
+.scn .ct{position:absolute;left:14.375%;top:0;width:85.625%;height:100%;overflow:hidden}
+.scn .ct img{width:100%;height:auto;display:block}
+.scn .fr{position:absolute;inset:0;width:100%;height:100%;opacity:0}
+.ring{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid #2B6CD9;background:rgba(43,108,217,.15);opacity:0;pointer-events:none;z-index:2}
+.r-row{left:33.3%;top:72.7%}.r-call{left:40.5%;top:9.3%}
+.run .ct img{animation:scr 30s infinite}
+.run .f1{animation:f1 30s infinite steps(1,end)}.run .f2{animation:f2 30s infinite steps(1,end)}.run .f3{animation:f3 30s infinite steps(1,end)}
+/* after the call: the new record eases in piece by piece, the older records slide down to make room */
+.tlz{position:absolute;left:50%;top:26.778%;width:50%;height:73.222%;overflow:hidden;background:#fff;opacity:0}
+.tlz img{position:absolute;left:0;width:100%;height:auto;display:block}
+.tlz .old{top:0}.tlz .pa{top:0}.tlz .pb{top:12.140%}.tlz .pc{top:23.976%}
+.tlz .pa,.tlz .pb,.tlz .pc{opacity:0}
+.run .tlz{animation:tz 30s infinite steps(1,end)}
+.run .tlz .old{animation:tOld 30s infinite cubic-bezier(.22,.8,.24,1)}
+.run .tlz .pa{animation:tA 30s infinite cubic-bezier(.22,.8,.24,1)}
+.run .tlz .pb{animation:tB 30s infinite cubic-bezier(.22,.8,.24,1)}
+.run .tlz .pc{animation:tC 30s infinite cubic-bezier(.22,.8,.24,1)}
+.scn .osum{position:absolute;left:51.389%;top:11.556%;width:47.222%;height:auto;opacity:0}
+.scn .nsx{position:absolute;left:26.389%;top:12.444%;width:22.153%;height:auto;opacity:0}
+
+@keyframes tz{0%,54.19%{opacity:0}54.27%,97.9%{opacity:1}98%,100%{opacity:0}}
+@keyframes tOld{0%,54.63%{transform:none}56.83%,57.93%{transform:translateY(14.871%)}60.13%,61.23%{transform:translateY(26.707%)}63.43%,100%{transform:translateY(35.205%)}}
+@keyframes tA{0%,55%{opacity:0;transform:translateY(-10px)}57.57%,100%{opacity:1;transform:none}}
+@keyframes tB{0%,58.3%{opacity:0;transform:translateY(-10px)}60.87%,100%{opacity:1;transform:none}}
+@keyframes tC{0%,61.6%{opacity:0;transform:translateY(-10px)}64.17%,100%{opacity:1;transform:none}}
+.run .r-row{animation:rRow 30s infinite}.run .r-call{animation:rCall 30s infinite}
+.run .phone{animation:ph 30s infinite steps(1,end)}.run .msg{animation:msg2 30s infinite}.run .tap{animation:tap2 30s infinite}.run .callscr{animation:cs2 30s infinite steps(1,end)}
+@keyframes scr{0%,8.8%{transform:none}16.13%,98%{transform:translateY(-17.733%)}100%{transform:none}}
+@keyframes rRow{0%,17.6%{opacity:0;transform:scale(.4)}19.07%{opacity:1;transform:scale(1)}21.27%{opacity:1;transform:scale(1.2)}22%,100%{opacity:0;transform:scale(1.5)}}
+@keyframes f1{0%,21.93%{opacity:0}22%,97.9%{opacity:1}98%,100%{opacity:0}}
+@keyframes rCall{0%,26.4%{opacity:0;transform:scale(.4)}27.87%{opacity:1;transform:scale(1)}30.07%{opacity:1;transform:scale(1.2)}30.8%,100%{opacity:0;transform:scale(1.5)}}
+@keyframes f2{0%,41.9%{opacity:0}42%,71.9%{opacity:1}72%,100%{opacity:0}}
+@keyframes ph{0%,30.73%{opacity:0}30.8%,52.73%{opacity:1}52.8%,100%{opacity:0}}
+@keyframes msg2{0%,32.27%{opacity:0;transform:translateY(6px)}34.47%,100%{opacity:1;transform:none}}
+@keyframes tap2{0%,38.87%{opacity:0;transform:scale(.2)}40.33%{opacity:1;transform:scale(1)}41.8%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes cs2{0%,41.73%{opacity:0}41.8%,52.73%{opacity:1}52.8%,100%{opacity:0}}
+@keyframes f3{0%,71.9%{opacity:0}72%,97.9%{opacity:1}98%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.run *{animation:none!important}.phone,.msg{opacity:1!important}.f1{opacity:1!important}.w-main{transform:translateX(12.4%)}}
+
+/* typewriter: the old text clears, the new text types in line by line */
+.run .sme{animation:sme 30s infinite ease-in-out}
+.scn .sl,.scn .nl{opacity:0;clip-path:inset(0 100% 0 0)}
+.run .sl1{animation:sl1 30s infinite steps(60,end)}.run .sl2{animation:sl2 30s infinite steps(30,end)}
+@keyframes sme{0%,65.5%{opacity:0}67.5%,97.9%{opacity:1}98%,100%{opacity:0}}
+@keyframes sl1{0%,67.98%{opacity:0;clip-path:inset(0 100% 0 0)}68%{opacity:1;clip-path:inset(44.5% 97.3% 35.5% 0)}73%,97.9%{opacity:1;clip-path:inset(44.5% 5% 35.5% 0)}98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+@keyframes sl2{0%,72.98%{opacity:0;clip-path:inset(0 100% 0 0)}73%{opacity:1;clip-path:inset(64.5% 97.3% 17% 0)}75.5%,97.9%{opacity:1;clip-path:inset(64.5% 56% 17% 0)}98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+.run .ns1{animation:n1 30s infinite linear}
+@keyframes n1{0%,77%{opacity:1;clip-path:inset(0 100% 0 0)}83.5%,97.9%{opacity:1;clip-path:inset(0 0 0 0)}98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+.run .nse{animation:nse 30s infinite ease-in-out}
+@keyframes nse{0%,85%{opacity:0}86.5%,97.9%{opacity:1}98%,100%{opacity:0}}
+.run .nl1{animation:nl1 30s infinite steps(28,end)}.run .nl2{animation:nl2 30s infinite steps(18,end)}.run .nl3{animation:nl3 30s infinite steps(14,end)}
+@keyframes nl1{0%,86.98%{opacity:0;clip-path:inset(0 100% 0 0)}87%{opacity:1;clip-path:inset(36% 88% 47.4% 0)}89.5%,97.9%{opacity:1;clip-path:inset(36% 0 47.4% 0)}98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+@keyframes nl2{0%,89.48%{opacity:0;clip-path:inset(0 100% 0 0)}89.5%{opacity:1;clip-path:inset(52.6% 88% 30.9% 0)}91%,97.9%{opacity:1;clip-path:inset(52.6% 38% 30.9% 0)}98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+@keyframes nl3{0%,91.48%{opacity:0;clip-path:inset(0 100% 0 0)}91.5%{opacity:1;clip-path:inset(69.1% 88% 14.7% 0)}93%,97.9%{opacity:1;clip-path:inset(69.1% 47% 14.7% 0)}98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+
+/* one fixed canvas, scaled as a whole with the window: everything keeps its proportions */
+.cv{position:absolute;left:0;top:0;width:1168px;height:661px;transform-origin:0 0;transform:scale(var(--k,1))}
+
+
+/* restart button */
+.rst{position:absolute;left:12px;bottom:12px;z-index:6;width:44px;height:44px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:500 13px/1 var(--f-body);cursor:pointer}
+.rst svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.rst:hover{border-color:var(--grey)}.rst:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){.rst{padding:0;justify-content:center}.rst span{display:none}}
+@media (prefers-reduced-motion:reduce){.rst{display:none}}
+
+/* card: light ground at rest; hover jumps into the case video (teal ground) */
+.stage{background:transparent!important;border:0!important}
+.stage::before{opacity:0!important}
+.rst{display:none!important}
+/* card: skip the still lead-in so the scroll starts the moment you hover */
+.run,.run *{animation-delay:-2.64s!important}
+/* at rest: screen only, no browser frame */
+:host(:not(.on)) .win{background:transparent!important;box-shadow:none!important;outline-color:transparent!important}
+:host(:not(.on)) .win .tl{opacity:0}
+
+:host(.on) .stage{background:transparent!important;border:0!important;--wire:rgba(255,255,255,.5);--wire2:rgba(255,255,255,.3);--dot:rgba(255,255,255,.5)}
+:host(.on) .stage::before{display:none!important}
+:host(.on) .win,:host(.on) .phone .bz{background:#176F75!important}
+:host(.on) .stage::before{display:none!important}
+.inp svg{flex:none;width:calc(28*var(--u));height:calc(28*var(--u));fill:none;stroke:#2B2B2B;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.inp{gap:calc(8*var(--u))!important;padding:0 calc(10*var(--u))!important}.inp span{height:calc(38*var(--u))!important;border-radius:calc(8*var(--u))!important}
+</style><div class="stage" id="stage" role="group" aria-label="The new CRM in one loop: scroll the sales homepage, open a lead, call from the phone, and the call record, summary and next step fill in"><div class="cv" id="cv">
+    <div class="win w-main"><div class="tl"><i></i><i></i><i></i></div><div class="in scn"><img class="sd" src="a/hx/f-side.webp" alt=""><div class="ct"><img src="a/hx/f-tall.webp" alt="Sales homepage: greeting with to-dos, key numbers, the funnel linked to next steps, today’s calendar, lead table"></div><img class="fr f1" src="a/hx/f-win.webp" alt=""><img class="nsx ns1" src="a/hx/t-ns1.webp" alt=""><img class="nsx nse" src="a/hx/t-nse.webp" alt=""><img class="nsx nl nl1" src="a/hx/t-ns2.webp" alt="Next step: reconfirm the vacation start date, then recommend a trip"><img class="nsx nl nl2" src="a/hx/t-ns2.webp" alt=""><img class="nsx nl nl3" src="a/hx/t-ns2.webp" alt=""><img class="osum sme" src="a/hx/t-sume.webp" alt=""><img class="osum sl sl1" src="a/hx/t-sum.webp" alt="Overall contact summary, updated after the call"><img class="osum sl sl2" src="a/hx/t-sum.webp" alt=""><div class="tlz" role="img" aria-label="Lead window after the call: a new call record with its recording, then its AI summary and next step"><img class="old" src="a/hx/t-old.webp" alt=""><img class="pa" src="a/hx/t-a.webp" alt=""><img class="pb" src="a/hx/t-b.webp" alt=""><img class="pc" src="a/hx/t-c.webp" alt=""></div><span class="ring r-row"></span><span class="ring r-call"></span></div></div>
+    <div class="phone" role="img" aria-label="WeCom on the salesperson’s phone: tap the number within 2 minutes to call Zeng Yi"><div class="bz"><div class="scr"><div class="isl"></div>
+      <div class="sb"><span>10:24</span><svg viewBox="0 0 46 10"><rect x="0" y="6" width="3" height="4" rx=".6"/><rect x="5" y="4" width="3" height="6" rx=".6"/><rect x="10" y="2" width="3" height="8" rx=".6"/><rect x="15" y="0" width="3" height="10" rx=".6"/><rect x="24" y="1" width="18" height="8" rx="2.2" fill="none" stroke="#111" stroke-width="1"/><rect x="26" y="3" width="12" height="4" rx="1"/></svg></div>
+            <div class="nav"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6l6 6"/></svg><b>Outbound Call Assistant</b><svg viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg></div>
+      <div class="chat"><span class="when">10:24</span>
+        <div class="msg"><span class="av"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+          <div><div class="nm">Outbound Call Assistant</div><div class="bub">Tap <span class="num">136****9733<span class="tap"></span></span> within 2 minutes to call 【Zeng Yi】<small>Line: Hangzhou local · auto-picked</small></div></div></div>
+      </div>
+      <div class="inp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20M9.4 12h.01M11.6 9.6a3.4 3.4 0 0 1 0 4.8M14 7.6a6.2 6.2 0 0 1 0 8.8"/></svg><span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20M9 10h.01M15 10h.01M8.4 14a4 4 0 0 0 7.2 0"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20M12 8v8M8 12h8"/></svg></div><div class="home"></div><div class="callscr" aria-hidden="true"><div class="who"><small>Calling · Hangzhou local</small><b>Zeng Yi</b><em>136****9733</em></div><div class="cgrid"><div class="cb"><span><svg viewBox="0 0 24 24"><path d="M3 3l18 18M9 5a3 3 0 0 1 6 0v5a3 3 0 0 1-.6 1.8M9 9v1a3 3 0 0 0 5 2.2M5 10a7 7 0 0 0 10.5 6M19 10a7 7 0 0 1-.7 3M12 17v4M8 21h8"/></svg></span>mute</div><div class="cb"><span><svg viewBox="0 0 24 24"><path d="M6 5h.01M12 5h.01M18 5h.01M6 11h.01M12 11h.01M18 11h.01M6 17h.01M12 17h.01M18 17h.01M12 22h.01"/></svg></span>keypad</div><div class="cb"><span><svg viewBox="0 0 24 24"><path d="M15 8a5 5 0 0 1 0 8M17.7 5a9 9 0 0 1 0 14M6 15H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2l3.5-4.5A.8.8 0 0 1 11 5v14a.8.8 0 0 1-1.5.5z"/></svg></span>audio</div><div class="cb"><span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>add call</div><div class="cb"><span><svg viewBox="0 0 24 24"><path d="M15 10l4.6-2.3A1 1 0 0 1 21 8.6v6.8a1 1 0 0 1-1.4.9L15 14zM3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>FaceTime</div><div class="cb"><span><svg viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></span>contacts</div></div><div class="end"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div></div></div></div></div>
+  </div><button class="rst" id="rst" type="button" aria-label="Restart the animation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.95 11a8 8 0 1 0-.5 4M20 5v6h-6"/></svg></button></div></template></div></div>
     <div class="info"><ul class="tags"><li>2024 · Shipped</li><li>CRM</li><li>AI SUMMARY</li></ul>
-      <h2 class="cap">CRM leads followup flow</h2>
-      <p>A follow up workflow for 120+ salespeople at XDF Cultural Tourism that saved more than 250 hours a day and raised WeChat add success and conversion.</p></div>
+      <h2>Saving sales 250+ hours a day by streamlining follow-up</h2>
+      <p>A follow-up workflow for 120+ salespeople at XDF Cultural Tourism: text first, one screen per lead, and a homepage that says what to do next.</p></div>
   </a>
   <a class="proj" href="./hennessy/" data-g1="#A8071A" data-g2="#C13D23" data-imp="+15.2% engagement" data-imp-col="#A8071A">
     <div class="media"><canvas aria-hidden="true"></canvas><img src="a/loyalty.webp" loading="lazy" decoding="async" alt="Hennessy membership app screens" width="920" height="448"></div>
     <div class="info"><ul class="tags"><li>2023 · Shipped</li><li>Loyalty</li><li>Online2Offline</li></ul>
-      <h2 class="cap">Hennessy travel membership center</h2>
-      <p>Hennessy's membership center, rebuilt around the whole trip instead of the purchase. Store page visits rose 15.2% and more members redeemed perks.</p></div>
+      <h2>Repositioning a membership center around the trip</h2>
+      <p>From rewarding buyers to serving members on every trip. Store page visits rose 15.2%.</p></div>
   </a>
   <a class="proj pop" href="./fancut/" data-g1="#2F1348" data-g2="#9A38EC" data-imp="4 weeks to tested prototype" data-imp-col="#7B2CC8">
     <div class="media"><canvas aria-hidden="true"></canvas><img src="a/fancut.webp?v=4" loading="lazy" decoding="async" alt="FanCut, an AI remix editor for Amazon Music" width="920" height="448"></div>
@@ -885,7 +1101,7 @@ function drawGlow(card,mx){
   c.translate(460+shift/ (w/920),224+61.55);c.rotate(Math.PI);c.translate(-555,-599.05);
   c.clip(SHAPE);
   c.transform(0,1,-1,0,554.998,298.84);c.scale(380.667,1131.01); // gradientTransform: translate · rotate(90) · scale(380.667 1131.01) — x/y swapped by the rotation
-  const g=c.createRadialGradient(0,0,0,0,0,1);g.addColorStop(.0356452,card.dataset.g1);g.addColorStop(.205088,card.dataset.g2);const DK=document.documentElement.getAttribute("data-theme")==="dark";g.addColorStop(.976235,DK?card.dataset.g2+"00":"#fff");
+  const g=c.createRadialGradient(0,0,0,0,0,1);const ON=card.classList.contains("on"),G1=ON?card.dataset.h1:card.dataset.g1,G2=ON?card.dataset.h2:card.dataset.g2;g.addColorStop(.0356452,G1);g.addColorStop(.205088,G2);const DK=ON||document.documentElement.getAttribute("data-theme")==="dark";g.addColorStop(.976235,DK?G2+"00":"#fff");
   c.fillStyle=g;c.fillRect(-4,-4,8,8);c.restore();
   const img=c.getImageData(0,0,W,H),d=img.data;
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*W+x)*4;if(!d[i+3])continue;const t=TH[(y&15)*16+(x&15)];if(DK){d[i+3]=q(d[i+3]/255,t)*255;continue;}d[i]=q(d[i]/255,t)*255;d[i+1]=q(d[i+1]/255,t)*255;d[i+2]=q(d[i+2]/255,t)*255;}
@@ -1220,3 +1436,33 @@ function run(){stop();var full=document.querySelector('.hmore .xp.open');if(!ful
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.hmore .rw.tg'))setTimeout(run,600)});
 mq.addEventListener&&mq.addEventListener('change',run);
 })();</script></body></html>
+<style id="cardlive">
+/* live hero: tokens live here and inherit into the shadow root */
+.hero-live{--bg:#fff;--fg:#121212;--grey:#6B6B6B;--line:#E6E8E9;--accent:#006D75;
+--shell:#F1F2F4;--shell-edge:rgba(15,30,40,.08);--inner:#fff;--inner-edge:rgba(15,30,40,.07);
+--glow1:#D9ECEF;--glow2:#E3E1F8;--rule:rgba(40,90,110,.10);
+--sh:0 1px 2px rgba(15,30,40,.05),0 18px 40px -18px rgba(15,30,40,.22),0 50px 90px -40px rgba(15,30,40,.25);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero-live{--bg:#121212;--fg:#F2F2F2;--grey:#9D9D9D;--line:#2A2D2E;--accent:#38C5C7;--shell:#25272A;--shell-edge:rgba(255,255,255,.08);--inner:#1C1D1F;--inner-edge:rgba(255,255,255,.06);--glow1:#12343A;--glow2:#221F3A;--rule:rgba(120,200,210,.08);--sh:0 1px 2px rgba(0,0,0,.4),0 50px 90px -40px rgba(0,0,0,.8)}}
+:root[data-theme="dark"] .hero-live{--bg:#121212;--fg:#F2F2F2;--grey:#9D9D9D;--line:#2A2D2E;--accent:#38C5C7;--shell:#25272A;--shell-edge:rgba(255,255,255,.08);--inner:#1C1D1F;--inner-edge:rgba(255,255,255,.06);--glow1:#12343A;--glow2:#221F3A;--rule:rgba(120,200,210,.08);--sh:0 1px 2px rgba(0,0,0,.4),0 50px 90px -40px rgba(0,0,0,.8)}
+.hero-live{--wire:rgba(20,30,35,.14);--wire2:rgba(20,30,35,.09);--shellw:rgba(255,255,255,.55);--dot:#D6D8DA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero-live{--wire:rgba(255,255,255,.16);--wire2:rgba(255,255,255,.09);--shellw:rgba(255,255,255,.03);--dot:#3A3D40}}
+:root[data-theme="dark"] .hero-live{--wire:rgba(255,255,255,.16);--wire2:rgba(255,255,255,.09);--shellw:rgba(255,255,255,.03);--dot:#3A3D40}
+.hero-live{--wire:rgba(20,30,35,.22);--wire2:rgba(20,30,35,.14)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero-live{--wire:rgba(255,255,255,.26);--wire2:rgba(255,255,255,.15)}}
+:root[data-theme="dark"] .hero-live{--wire:rgba(255,255,255,.26);--wire2:rgba(255,255,255,.15)}
+.media .cardlive{position:absolute;inset:0;z-index:1;border-radius:inherit;transform-origin:50% 100%;transition:transform .6s var(--ease)}
+.media .cardlive{transform:translateY(9%)}
+.proj:hover .media .cardlive,.proj:focus-visible .media .cardlive{transform:none}
+.media img.xdf-t{left:4.3%;top:7.5%;width:20.5%;height:auto;min-width:0;transform:none;z-index:2}
+.proj:hover .media img.xdf-t,.proj:focus-visible .media img.xdf-t{opacity:0;transform:none}
+.media .cardlive.on{transform:none}.media:has(.cardlive.on) img.xdf-t{opacity:0}
+</style>
+<script id="cardlive-js">(()=>{const host=document.getElementById("heroLive"),tp=document.getElementById("heroTpl");if(!host||!tp)return;const r=host.attachShadow({mode:"open"});r.appendChild(tp.content);
+const st=r.getElementById("stage"),cv=r.getElementById("cv");const f=()=>cv.style.setProperty("--k",st.clientWidth/1168);f();
+if("ResizeObserver" in window)new ResizeObserver(f).observe(st);else addEventListener("resize",f);
+const card=host.closest(".proj");const play=on=>{host.classList.toggle("on",!!on);card.classList.toggle("on",!!on);if(window.__glow)window.__glow();if(on){st.classList.remove("run");void st.offsetWidth;st.classList.add("run")}else st.classList.remove("run")};
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){card.addEventListener("mouseenter",()=>play(1));card.addEventListener("mouseleave",()=>play(0));card.addEventListener("focus",()=>play(1));card.addEventListener("blur",()=>play(0))}
+else if("IntersectionObserver" in window)new IntersectionObserver(es=>es.forEach(e=>play(e.isIntersecting)),{threshold:.5}).observe(host)})();</script>
+<style id="cardlive-on">.proj.on .media{background:#176F75}.proj.on .media canvas{opacity:1!important}</style>
+<style id="tap44">/* DS: 44px tap areas must not overlap — 28px icons need a 16px gap */.contact,.hf-contact{gap:16px}</style>
