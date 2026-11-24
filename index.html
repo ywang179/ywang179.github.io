@@ -1094,6 +1094,8 @@ function drawGlow(card,mx){
   const cv=card.querySelector("canvas"),box=card.querySelector(".media"),w=box.clientWidth,h=box.clientHeight;if(!w||!h)return;
   const W=Math.ceil(w/PX),H=Math.ceil(h/PX);if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;}
   const c=cv.getContext("2d",{willReadFrequently:true});c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,W,H);
+  /* cache: each card state is dithered once, later hovers just paste it */
+  const K=[card.classList.contains("on"),document.documentElement.getAttribute("data-theme"),W,H,mx].join("|");card.__gc=card.__gc||{};if(card.__gc[K]){c.putImageData(card.__gc[K],0,0);return}
   const sx=w/920/PX,sy=h/448/PX,shift=mx==null?0:(mx-w/2)*.5;
   c.save();
   // card space: 1110x1198.1 box centred at (w/2 + shift, h/2 + 61.55), rotated 180°
@@ -1105,11 +1107,11 @@ function drawGlow(card,mx){
   c.fillStyle=g;c.fillRect(-4,-4,8,8);c.restore();
   const img=c.getImageData(0,0,W,H),d=img.data;
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*W+x)*4;if(!d[i+3])continue;const t=TH[(y&15)*16+(x&15)];if(DK){d[i+3]=q(d[i+3]/255,t)*255;continue;}d[i]=q(d[i]/255,t)*255;d[i+1]=q(d[i+1]/255,t)*255;d[i+2]=q(d[i+2]/255,t)*255;}
-  c.putImageData(img,0,0);
+  c.putImageData(img,0,0);card.__gc[K]=img;
 }
 const cards=[...document.querySelectorAll(".proj")];
 const all=()=>cards.forEach(k=>drawGlow(k,null));
-all();window.__glow=all;
+all();window.__glow=all;window.__glowOne=k=>drawGlow(k,null);
 if(window.ResizeObserver){const ro=new ResizeObserver(e=>e.forEach(x=>drawGlow(x.target.closest(".proj"),null)));cards.forEach(k=>ro.observe(k.querySelector(".media")));}
 if(!reduce&&matchMedia("(hover: hover)").matches){
   /* cursor echo — the pointer leaves small ripples that widen and fade (the "echo" idea);
@@ -1461,8 +1463,11 @@ mq.addEventListener&&mq.addEventListener('change',run);
 <script id="cardlive-js">(()=>{const host=document.getElementById("heroLive"),tp=document.getElementById("heroTpl");if(!host||!tp)return;const r=host.attachShadow({mode:"open"});r.appendChild(tp.content);
 const st=r.getElementById("stage"),cv=r.getElementById("cv");const f=()=>cv.style.setProperty("--k",st.clientWidth/1168);f();
 if("ResizeObserver" in window)new ResizeObserver(f).observe(st);else addEventListener("resize",f);
-const card=host.closest(".proj");const play=on=>{host.classList.toggle("on",!!on);card.classList.toggle("on",!!on);if(window.__glow)window.__glow();if(on){st.classList.remove("run");void st.offsetWidth;st.classList.add("run")}else st.classList.remove("run")};
+const card=host.closest(".proj");const play=on=>{host.classList.toggle("on",!!on);card.classList.toggle("on",!!on);requestAnimationFrame(()=>{if(window.__glowOne)window.__glowOne(card)});st.classList.toggle("run",!!on)};
 if(matchMedia("(hover:hover) and (pointer:fine)").matches){card.addEventListener("mouseenter",()=>play(1));card.addEventListener("mouseleave",()=>play(0));card.addEventListener("focus",()=>play(1));card.addEventListener("blur",()=>play(0))}
-else if("IntersectionObserver" in window)new IntersectionObserver(es=>es.forEach(e=>play(e.isIntersecting)),{threshold:.5}).observe(host)})();</script>
+else if("IntersectionObserver" in window)new IntersectionObserver(es=>es.forEach(e=>play(e.isIntersecting)),{threshold:.5}).observe(host);
+/* warm up before the first hover: decode the screenshots and pre-dither the teal state, when the card gets near the screen */
+let warm=false;const warmUp=()=>{if(warm)return;warm=true;r.querySelectorAll("img").forEach(i=>{if(i.decode)i.decode().catch(()=>{})});const idle=window.requestIdleCallback||(f=>setTimeout(f,200));idle(()=>{if(card.classList.contains("on")||!window.__glowOne)return;card.classList.add("on");window.__glowOne(card);card.classList.remove("on");window.__glowOne(card)})};
+if("IntersectionObserver" in window){const wo=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){warmUp();wo.disconnect()}},{rootMargin:"600px"});wo.observe(host)}else warmUp();})();</script>
 <style id="cardlive-on">.proj.on .media{background:#176F75}.proj.on .media canvas{opacity:1!important}</style>
 <style id="tap44">/* DS: 44px tap areas must not overlap — 28px icons need a 16px gap */.contact,.hf-contact{gap:16px}</style>
