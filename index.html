@@ -486,7 +486,7 @@ html.yyld-on,html.yyld-on body{overflow:hidden}
 #yyld .peb{position:relative;width:clamp(84px,13vw,132px);aspect-ratio:1}
 #yyld .peb svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 #yyld .stone{transform-box:fill-box;transform-origin:50% 100%;opacity:0}
-#yyld.s1 .stone{animation:yyfall .8s cubic-bezier(.45,0,.9,.55) forwards}
+#yyld.s1 .stone{animation:yyfall .55s cubic-bezier(.45,0,.9,.55) forwards}
 #yyld.s2 .stone{opacity:1;animation:yysquash .5s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes yyfall{0%{opacity:0;transform:translateY(-55vh) rotate(-30deg)}12%{opacity:1}100%{opacity:1;transform:none}}
 @keyframes yysquash{0%{opacity:1;transform:scale(1.12,.86)}50%{opacity:1;transform:scale(.97,1.03)}100%{opacity:1;transform:none}}
@@ -508,7 +508,7 @@ html.yyld-on,html.yyld-on body{overflow:hidden}
 #yyld.s4 .ringx{animation:yyring 1.8s cubic-bezier(.16,1,.3,1) forwards}
 #yyld.s4 .ringx.r2{animation-delay:.28s}
 @keyframes yyring{0%{opacity:0;width:clamp(84px,13vw,132px)}15%{opacity:.4}100%{opacity:0;width:150vmax}}
-#yyld.out{-webkit-mask:radial-gradient(circle at 50% 50%,transparent var(--yyr),#000 calc(var(--yyr) + 1px));mask:radial-gradient(circle at 50% 50%,transparent var(--yyr),#000 calc(var(--yyr) + 1px));animation:yyopen 1.3s cubic-bezier(.65,0,.35,1) forwards;pointer-events:none}
+#yyld.out{-webkit-mask:radial-gradient(circle at 50% 50%,transparent var(--yyr),#000 calc(var(--yyr) + 1px));mask:radial-gradient(circle at 50% 50%,transparent var(--yyr),#000 calc(var(--yyr) + 1px));animation:yyopen .85s cubic-bezier(.65,0,.35,1) forwards;pointer-events:none}
 @keyframes yyopen{to{--yyr:120vmax}}
 @media (prefers-reduced-motion:reduce){#yyld{display:none}}
 </style>
@@ -525,14 +525,14 @@ el.hidden=false;de.classList.add('yyld-on');
 var done=false,ts=[];
 function wait(ms){return new Promise(function(r){ts.push(setTimeout(r,ms))})}
 function step(k){el.classList.add('s'+k)}
-function finish(){if(done)return;done=true;ts.forEach(clearTimeout);el.classList.add('out');de.classList.remove('yyld-on');setTimeout(function(){el.hidden=true;el.remove()},1350)}
+function finish(){if(done)return;done=true;ts.forEach(clearTimeout);el.classList.add('out');de.classList.remove('yyld-on');setTimeout(function(){el.hidden=true;el.remove()},900)}
 el.addEventListener('click',finish);addEventListener('keydown',function(e){if(e.key!=='Tab')finish()},{once:true});
 var fonts=document.fonts?document.fonts.ready:Promise.resolve();
-var loaded=new Promise(function(r){if(document.readyState==='complete')r();else addEventListener('load',r,{once:true})});
-var cap=wait(8000);
+var loaded=new Promise(function(r){if(document.readyState!=='loading')r();else addEventListener('DOMContentLoaded',r,{once:true})});
+var cap=wait(3000);
 function race(p){return Promise.race([p,cap])}
 step(1);
-wait(800).then(function(){return race(fonts)}).then(function(){if(done)return;step(2);return wait(850)}).then(function(){return race(loaded)}).then(function(){if(done)return;step(3);return wait(950)}).then(function(){if(done)return;step(4);return wait(450)}).then(finish);
+wait(550).then(function(){return race(fonts)}).then(function(){if(done)return;step(2);return wait(500)}).then(function(){return race(loaded)}).then(function(){if(done)return;step(3);return wait(550)}).then(function(){if(done)return;step(4);return wait(250)}).then(finish);
 })();</script>
 
 <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K66SX22J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
